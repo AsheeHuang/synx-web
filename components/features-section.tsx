@@ -49,7 +49,7 @@ export function FeaturesSection({ language }: FeaturesSectionProps) {
       description: t.features.transactions.description,
       imagePosition: "right" as const,
       background: "bg-gradient-to-bl from-orange-50/50 to-amber-50/50 dark:from-orange-950/30 dark:to-amber-950/30",
-      screenshot: "/screenshots/shot2.png",
+      screenshot: "/screenshots/shot6.png",
     },
     {
       title: t.features.multiCurrency.title,
