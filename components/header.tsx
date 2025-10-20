@@ -2,6 +2,7 @@
 
 import { useState, useEffect } from "react"
 import Image from "next/image"
+import Link from "next/link"
 import { Button } from "@/components/ui/button"
 import { translations } from "@/lib/translations"
 
@@ -51,7 +52,7 @@ export function Header({ language, setLanguage }: HeaderProps) {
             <span className="text-xl sm:text-2xl font-bold text-foreground">Synx</span>
           </div>
 
-          {/* Navigation */}
+          {/* Center navigation */}
           <nav className="hidden md:flex items-center gap-6 lg:gap-8">
             <button
               onClick={() => scrollToSection("features")}
@@ -67,14 +68,23 @@ export function Header({ language, setLanguage }: HeaderProps) {
             </button>
           </nav>
 
-          <Button
-            variant="outline"
-            size="sm"
-            onClick={toggleLanguage}
-            className="text-xs sm:text-sm min-w-[60px] bg-transparent"
-          >
-            {"EN / 中文"}
-          </Button>
+          {/* Right side navigation */}
+          <div className="flex items-center gap-4 lg:gap-6">
+            <Link
+              href="/inside"
+              className="hidden md:block text-sm lg:text-base text-muted-foreground hover:text-foreground transition-colors"
+            >
+              {t.nav.inside}
+            </Link>
+            <Button
+              variant="outline"
+              size="sm"
+              onClick={toggleLanguage}
+              className="text-xs sm:text-sm min-w-[60px] bg-transparent"
+            >
+              {"EN / 中文"}
+            </Button>
+          </div>
         </div>
       </div>
     </header>

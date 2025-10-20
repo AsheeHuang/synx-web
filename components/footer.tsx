@@ -27,8 +27,8 @@ export function Footer({ language }: FooterProps) {
 
           <p className="text-sm sm:text-base text-muted-foreground">
             {t.footer.contact}:{" "}
-            <a href="mailto:timhuang304@gmail.com" className="text-primary hover:underline">
-              timhuang304@gmail.com
+            <a href="mailto:support@synxapp.com" className="text-primary hover:underline">
+              support@synxapp.com
             </a>
           </p>
 
