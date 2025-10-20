@@ -93,7 +93,6 @@ export function FeaturesSection({ language }: FeaturesSectionProps) {
                     <div
                       ref={(el) => { screenshotRefs.current[index] = el }}
                       className="w-40 h-80 sm:w-52 sm:h-[416px] lg:w-64 lg:h-[512px] rounded-3xl overflow-hidden float-up-on-scroll"
-                      style={{ filter: 'drop-shadow(0 20px 20px rgba(0, 0, 0, 0.2))' }}
                     >
                       <Image
                         src={feature.screenshot}
@@ -125,7 +124,6 @@ export function FeaturesSection({ language }: FeaturesSectionProps) {
                     <div
                       ref={(el) => { screenshotRefs.current[index] = el }}
                       className="w-40 h-80 sm:w-52 sm:h-[416px] lg:w-64 lg:h-[512px] rounded-3xl overflow-hidden float-up-on-scroll"
-                      style={{ filter: 'drop-shadow(0 20px 40px rgba(0, 0, 0, 0.3))' }}
                     >
                       <Image
                         src={feature.screenshot}

@@ -32,24 +32,51 @@ export function HeroSection({ language }: HeroSectionProps) {
           </p>
 
           {/* Screenshots */}
-          <div className="flex items-center justify-center gap-4 sm:gap-6 mb-8 sm:mb-12">
-            <div className="w-52 h-[416px] sm:w-64 sm:h-[512px] rounded-3xl overflow-hidden animate-float-up" style={{ filter: 'drop-shadow(0 20px 40px rgba(0, 0, 0, 0.3))' }}>
-              <Image
-                src="/screenshots/shot1.png"
-                alt="Synx App Screenshot 1"
-                width={384}
-                height={768}
-                className="w-full h-full object-cover"
-              />
+          <div className="flex sm:flex-row items-center justify-center gap-4 sm:gap-6 mb-8 sm:mb-12">
+            {/* Mobile: Stacked overlapping layout */}
+            <div className="relative sm:hidden w-full max-w-sm h-[380px]">
+              {/* Bottom image - positioned to the left and lower */}
+              <div className="absolute bottom-0 left-12 w-40 h-[320px] rounded-3xl overflow-hidden animate-float-up-delay-1" style={{ filter: 'drop-shadow(0 20px 40px rgba(0, 0, 0, 0.3))' }}>
+                <Image
+                  src="/screenshots/shot2.png"
+                  alt="Synx App Screenshot 2"
+                  width={384}
+                  height={768}
+                  className="w-full h-full object-cover"
+                />
+              </div>
+              {/* Top image - overlaps bottom right, positioned top right */}
+              <div className="absolute top-0 right-12 w-44 h-[352px] rounded-3xl overflow-hidden animate-float-up" style={{ filter: 'drop-shadow(0 20px 40px rgba(0, 0, 0, 0.3))' }}>
+                <Image
+                  src="/screenshots/shot1.png"
+                  alt="Synx App Screenshot 1"
+                  width={384}
+                  height={768}
+                  className="w-full h-full object-cover"
+                />
+              </div>
             </div>
-            <div className="w-52 h-[416px] sm:w-64 sm:h-[512px] rounded-3xl overflow-hidden animate-float-up-delay-1" style={{ filter: 'drop-shadow(0 20px 40px rgba(0, 0, 0, 0.3))' }}>
-              <Image
-                src="/screenshots/shot2.png"
-                alt="Synx App Screenshot 2"
-                width={384}
-                height={768}
-                className="w-full h-full object-cover"
-              />
+
+            {/* Desktop: Side by side layout */}
+            <div className="hidden sm:flex items-center justify-center gap-6">
+              <div className="w-64 h-[512px] rounded-3xl overflow-hidden animate-float-up" style={{ filter: 'drop-shadow(0 20px 40px rgba(0, 0, 0, 0.3))' }}>
+                <Image
+                  src="/screenshots/shot1.png"
+                  alt="Synx App Screenshot 1"
+                  width={384}
+                  height={768}
+                  className="w-full h-full object-cover"
+                />
+              </div>
+              <div className="w-64 h-[512px] rounded-3xl overflow-hidden animate-float-up-delay-1" style={{ filter: 'drop-shadow(0 20px 40px rgba(0, 0, 0, 0.3))' }}>
+                <Image
+                  src="/screenshots/shot2.png"
+                  alt="Synx App Screenshot 2"
+                  width={384}
+                  height={768}
+                  className="w-full h-full object-cover"
+                />
+              </div>
             </div>
           </div>
 
@@ -70,7 +97,8 @@ export function HeroSection({ language }: HeroSectionProps) {
             <Button
               size="lg"
               variant="outline"
-              className="rounded-xl px-6 h-14 border-2 bg-transparent flex items-center gap-3"
+              disabled
+              className="rounded-xl px-6 h-14 border-2 bg-transparent flex items-center gap-3 opacity-60 cursor-not-allowed"
             >
               <svg className="w-8 h-8 flex-shrink-0" viewBox="0 0 24 24" fill="currentColor">
                 <path d="M3,20.5V3.5C3,2.91 3.34,2.39 3.84,2.15L13.69,12L3.84,21.85C3.34,21.6 3,21.09 3,20.5M16.81,15.12L6.05,21.34L14.54,12.85L16.81,15.12M20.16,10.81C20.5,11.08 20.75,11.5 20.75,12C20.75,12.5 20.53,12.9 20.18,13.18L17.89,14.5L15.39,12L17.89,9.5L20.16,10.81M6.05,2.66L16.81,8.88L14.54,11.15L6.05,2.66Z" />

@@ -14,7 +14,7 @@ export const translations = {
         line2: "App Store",
       },
       playStore: {
-        line1: "Get it on",
+        line1: "Coming Soon",
         line2: "Google Play",
       },
     },
@@ -46,8 +46,8 @@ export const translations = {
       title: "Get Started Today",
       subtitle: "Download Synx and take control of your financial future",
       appStore: "Download on the App Store",
-      playStore: "Get it on Google Play",
-      comingSoon: "Coming soon on Android",
+      playStore: "Coming Soon - Google Play",
+      comingSoon: "Android version coming soon",
     },
     footer: {
       contact: "Contact",
@@ -69,7 +69,7 @@ export const translations = {
         line2: "App Store",
       },
       playStore: {
-        line1: "下載於",
+        line1: "即將推出",
         line2: "Google Play",
       },
     },
@@ -101,7 +101,7 @@ export const translations = {
       title: "立即開始",
       subtitle: "下載 Synx，掌控您的財務未來",
       appStore: "在 App Store 下載",
-      playStore: "在 Google Play 下載",
+      playStore: "即將推出 - Google Play",
       comingSoon: "Android 版即將推出",
     },
     footer: {
