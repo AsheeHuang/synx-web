@@ -64,7 +64,7 @@ export function FeaturesSection({ language }: FeaturesSectionProps) {
                 {/* Screenshot - Left position */}
                 {feature.imagePosition === "left" && (
                   <div className="flex items-center justify-center">
-                    <div className="w-32 h-64 sm:w-40 sm:h-80 lg:w-48 lg:h-96 rounded-3xl overflow-hidden" style={{ filter: 'drop-shadow(0 20px 20px rgba(0, 0, 0, 0.2))' }}>
+                    <div className="w-40 h-80 sm:w-52 sm:h-[416px] lg:w-64 lg:h-[512px] rounded-3xl overflow-hidden" style={{ filter: 'drop-shadow(0 20px 20px rgba(0, 0, 0, 0.2))' }}>
                       <Image
                         src={feature.screenshot}
                         alt={feature.title}
@@ -89,7 +89,7 @@ export function FeaturesSection({ language }: FeaturesSectionProps) {
                 {/* Screenshot - Right position */}
                 {feature.imagePosition === "right" && (
                   <div className="flex items-center justify-center order-last">
-                    <div className="w-32 h-64 sm:w-40 sm:h-80 lg:w-48 lg:h-96 rounded-3xl overflow-hidden" style={{ filter: 'drop-shadow(0 20px 40px rgba(0, 0, 0, 0.3))' }}>
+                    <div className="w-40 h-80 sm:w-52 sm:h-[416px] lg:w-64 lg:h-[512px] rounded-3xl overflow-hidden" style={{ filter: 'drop-shadow(0 20px 40px rgba(0, 0, 0, 0.3))' }}>
                       <Image
                         src={feature.screenshot}
                         alt={feature.title}

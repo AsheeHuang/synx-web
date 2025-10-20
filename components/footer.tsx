@@ -1,5 +1,6 @@
 "use client"
 
+import Image from "next/image"
 import { translations } from "@/lib/translations"
 
 interface FooterProps {
@@ -14,9 +15,13 @@ export function Footer({ language }: FooterProps) {
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center space-y-4">
           <div className="flex items-center justify-center gap-2 mb-6">
-            <div className="w-8 h-8 rounded-xl bg-primary flex items-center justify-center">
-              <span className="text-primary-foreground font-bold text-lg">S</span>
-            </div>
+            <Image
+              src="/icon_fill.png"
+              alt="Synx"
+              width={32}
+              height={32}
+              className="w-8 h-8 rounded"
+            />
             <span className="text-xl font-bold text-foreground">Synx</span>
           </div>
 

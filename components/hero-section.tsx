@@ -33,7 +33,7 @@ export function HeroSection({ language }: HeroSectionProps) {
 
           {/* Screenshots */}
           <div className="flex items-center justify-center gap-4 sm:gap-6 mb-8 sm:mb-12">
-            <div className="w-40 h-80 sm:w-48 sm:h-96 rounded-3xl overflow-hidden" style={{ filter: 'drop-shadow(0 20px 40px rgba(0, 0, 0, 0.3))' }}>
+            <div className="w-52 h-[416px] sm:w-64 sm:h-[512px] rounded-3xl overflow-hidden" style={{ filter: 'drop-shadow(0 20px 40px rgba(0, 0, 0, 0.3))' }}>
               <Image
                 src="/screenshots/shot1.png"
                 alt="Synx App Screenshot 1"
@@ -42,7 +42,7 @@ export function HeroSection({ language }: HeroSectionProps) {
                 className="w-full h-full object-cover"
               />
             </div>
-            <div className="w-40 h-80 sm:w-48 sm:h-96 rounded-3xl overflow-hidden -mt-8" style={{ filter: 'drop-shadow(0 20px 40px rgba(0, 0, 0, 0.3))' }}>
+            <div className="w-52 h-[416px] sm:w-64 sm:h-[512px] rounded-3xl overflow-hidden" style={{ filter: 'drop-shadow(0 20px 40px rgba(0, 0, 0, 0.3))' }}>
               <Image
                 src="/screenshots/shot2.png"
                 alt="Synx App Screenshot 2"
