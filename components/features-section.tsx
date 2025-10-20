@@ -1,6 +1,7 @@
 "use client"
 
 import Image from "next/image"
+import { useEffect, useRef } from "react"
 import { translations } from "@/lib/translations"
 
 interface FeaturesSectionProps {
@@ -9,6 +10,31 @@ interface FeaturesSectionProps {
 
 export function FeaturesSection({ language }: FeaturesSectionProps) {
   const t = translations[language]
+  const screenshotRefs = useRef<(HTMLDivElement | null)[]>([])
+  const contentRefs = useRef<(HTMLDivElement | null)[]>([])
+
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add("visible")
+          }
+        })
+      },
+      { threshold: 0.2 }
+    )
+
+    screenshotRefs.current.forEach((ref) => {
+      if (ref) observer.observe(ref)
+    })
+
+    contentRefs.current.forEach((ref) => {
+      if (ref) observer.observe(ref)
+    })
+
+    return () => observer.disconnect()
+  }, [])
 
   const features = [
     {
@@ -64,7 +90,11 @@ export function FeaturesSection({ language }: FeaturesSectionProps) {
                 {/* Screenshot - Left position */}
                 {feature.imagePosition === "left" && (
                   <div className="flex items-center justify-center">
-                    <div className="w-40 h-80 sm:w-52 sm:h-[416px] lg:w-64 lg:h-[512px] rounded-3xl overflow-hidden" style={{ filter: 'drop-shadow(0 20px 20px rgba(0, 0, 0, 0.2))' }}>
+                    <div
+                      ref={(el) => { screenshotRefs.current[index] = el }}
+                      className="w-40 h-80 sm:w-52 sm:h-[416px] lg:w-64 lg:h-[512px] rounded-3xl overflow-hidden float-up-on-scroll"
+                      style={{ filter: 'drop-shadow(0 20px 20px rgba(0, 0, 0, 0.2))' }}
+                    >
                       <Image
                         src={feature.screenshot}
                         alt={feature.title}
@@ -77,7 +107,10 @@ export function FeaturesSection({ language }: FeaturesSectionProps) {
                 )}
 
                 {/* Content */}
-                <div className="text-left">
+                <div
+                  ref={(el) => { contentRefs.current[index] = el }}
+                  className="text-left float-up-on-scroll-delay"
+                >
                   <h3 className="text-xl sm:text-3xl lg:text-4xl xl:text-5xl font-bold text-foreground mb-2 sm:mb-4 lg:mb-6">
                     {feature.title}
                   </h3>
@@ -89,7 +122,11 @@ export function FeaturesSection({ language }: FeaturesSectionProps) {
                 {/* Screenshot - Right position */}
                 {feature.imagePosition === "right" && (
                   <div className="flex items-center justify-center order-last">
-                    <div className="w-40 h-80 sm:w-52 sm:h-[416px] lg:w-64 lg:h-[512px] rounded-3xl overflow-hidden" style={{ filter: 'drop-shadow(0 20px 40px rgba(0, 0, 0, 0.3))' }}>
+                    <div
+                      ref={(el) => { screenshotRefs.current[index] = el }}
+                      className="w-40 h-80 sm:w-52 sm:h-[416px] lg:w-64 lg:h-[512px] rounded-3xl overflow-hidden float-up-on-scroll"
+                      style={{ filter: 'drop-shadow(0 20px 40px rgba(0, 0, 0, 0.3))' }}
+                    >
                       <Image
                         src={feature.screenshot}
                         alt={feature.title}
