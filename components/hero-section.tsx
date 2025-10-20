@@ -42,7 +42,7 @@ export function HeroSection({ language }: HeroSectionProps) {
                   alt="Synx App Screenshot 2"
                   width={384}
                   height={768}
-                  className="w-full h-full object-cover"
+                  className="w-full h-full object-contain"
                 />
               </div>
               {/* Top image - overlaps bottom right, positioned top right */}
@@ -52,7 +52,7 @@ export function HeroSection({ language }: HeroSectionProps) {
                   alt="Synx App Screenshot 1"
                   width={384}
                   height={768}
-                  className="w-full h-full object-cover"
+                  className="w-full h-full object-contain"
                 />
               </div>
             </div>
@@ -65,7 +65,7 @@ export function HeroSection({ language }: HeroSectionProps) {
                   alt="Synx App Screenshot 1"
                   width={384}
                   height={768}
-                  className="w-full h-full object-cover"
+                  className="w-full h-full object-contain"
                 />
               </div>
               <div className="w-64 h-[512px] rounded-3xl overflow-hidden animate-float-up-delay-1" style={{ filter: 'drop-shadow(0 20px 40px rgba(0, 0, 0, 0.3))' }}>
@@ -74,7 +74,7 @@ export function HeroSection({ language }: HeroSectionProps) {
                   alt="Synx App Screenshot 2"
                   width={384}
                   height={768}
-                  className="w-full h-full object-cover"
+                  className="w-full h-full object-contain"
                 />
               </div>
             </div>
