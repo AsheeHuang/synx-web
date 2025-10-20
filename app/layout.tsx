@@ -6,16 +6,15 @@ import "./globals.css"
 const inter = Inter({ subsets: ["latin"] })
 
 export const metadata: Metadata = {
-  title: "Synx - Track Your Wealth. Simplified.",
+  title: "Synx - Your Net Worth, in Perfect Sync.",
   description:
-    "Synx helps you monitor your total assets, investments, and cash flow across multiple markets and currencies — all in one place.",
+    "From live market prices to automated cash flow, Synx gives you a clear, private, and real-time view of your entire financial life.",
   openGraph: {
-    title: "Synx - Track Your Wealth. Simplified.",
+    title: "Synx - Your Net Worth, in Perfect Sync.",
     description:
-      "Synx helps you monitor your total assets, investments, and cash flow across multiple markets and currencies — all in one place.",
+      "From live market prices to automated cash flow, Synx gives you a clear, private, and real-time view of your entire financial life.",
     type: "website",
   },
-    generator: 'v0.app'
 }
 
 export default function RootLayout({
