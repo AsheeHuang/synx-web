@@ -69,10 +69,10 @@ export function Header({ language, setLanguage }: HeaderProps) {
           </nav>
 
           {/* Right side navigation */}
-          <div className="flex items-center gap-4 lg:gap-6">
+          <div className="flex items-center gap-3 sm:gap-4 lg:gap-6">
             <Link
               href="/inside"
-              className="hidden md:block text-sm lg:text-base text-muted-foreground hover:text-foreground transition-colors"
+              className="text-sm lg:text-base text-muted-foreground hover:text-foreground transition-colors"
             >
               {t.nav.inside}
             </Link>
