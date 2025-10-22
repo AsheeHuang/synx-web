@@ -21,10 +21,10 @@ export function AnimatedChart() {
       pointSpacing: 6,
       speed: 0.5,
       volatility: 0.035,
-      upwardTrend: -1.75,
+      upwardTrend: -1.5,
       baseDownwardShift: 0.08,
-      minBoundary: 0.4, // 30% from top
-      maxBoundary: 0.9  // 70% from top
+      minBoundary: 0.3, // 30% from top
+      maxBoundary: 0.7  // 70% from top
     }
 
     let dataPoints: number[] = []
@@ -154,40 +154,32 @@ export function AnimatedChart() {
 
       // Find the average Y position of visible points
       let sum = 0
-      let count = 0
+      let curMin = canvas.height;
+      let curMax = 0;
       for (let i = 0; i < dataPoints.length; i++) {
-        const x = i * config.pointSpacing - offset
-        if (x >= 0 && x <= canvas.width) {
-          sum += dataPoints[i] + verticalOffset
-          count++
-        }
+        curMax = Math.max(curMax, dataPoints[i] + verticalOffset);
+        curMin = Math.min(curMin, dataPoints[i] + verticalOffset);
       }
-
-      if (count === 0) return
-
-      const avgY = sum / count
 
       // Define thresholds
       const minY = canvas.height * config.minBoundary
       const maxY = canvas.height * config.maxBoundary
 
       // Adjust downward shift based on position
-      if (avgY < minY) {
+      if (curMin < minY) {
         // Line is too high (above threshold), increase downward shift
         outOfBoundsFrames++
-        const distanceFromMin = (minY - avgY) / canvas.height
+        const distanceFromMin = (minY - curMin) / canvas.height
         // Multiply by time factor: more frames out of bounds = stronger correction
-        const timeFactor = Math.min(outOfBoundsFrames / 60, 3) // Cap at 3x after 1 second
+        const timeFactor = Math.min(outOfBoundsFrames / 20, 10) // Cap at 3x after 1 second
         downwardShift = config.baseDownwardShift + distanceFromMin * 2 * (1 + timeFactor)
-        console.log('too high');
-      } else if (avgY > maxY) {
+      } else if (curMax > maxY) {
         // Line is too low (below threshold), decrease downward shift
         outOfBoundsFrames++
-        const distanceFromMax = (avgY - maxY) / canvas.height
+        const distanceFromMax = (curMax - maxY) / canvas.height
         // Multiply by time factor: more frames out of bounds = stronger correction
-        const timeFactor = Math.min(outOfBoundsFrames / 60, 3) // Cap at 3x after 1 second
+        const timeFactor = Math.min(outOfBoundsFrames / 20, 10) // Cap at 3x after 1 second
         downwardShift = Math.max(-config.baseDownwardShift, config.baseDownwardShift - distanceFromMax * 2 * (1 + timeFactor))
-        console.log('too low');
       } else {
         // Line is within bounds, reset counter and gradually return to base speed
         outOfBoundsFrames = 0
