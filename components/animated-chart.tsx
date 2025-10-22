@@ -21,10 +21,10 @@ export function AnimatedChart() {
       pointSpacing: 6,
       speed: 0.5,
       volatility: 0.035,
-      upwardTrend: -2,
-      baseDownwardShift: 0.06,
-      minBoundary: 0.3, // 30% from top
-      maxBoundary: 0.7  // 70% from top
+      upwardTrend: -1.75,
+      baseDownwardShift: 0.08,
+      minBoundary: 0.4, // 30% from top
+      maxBoundary: 0.9  // 70% from top
     }
 
     let dataPoints: number[] = []
@@ -34,6 +34,7 @@ export function AnimatedChart() {
     let animationFrame: number
     let drawProgress = 0 // 0 to 1, for initial drawing animation
     let isInitialAnimationComplete = false
+    let outOfBoundsFrames = 0 // Track how long the line has been out of bounds
 
     // Set canvas size
     const resizeCanvas = () => {
@@ -147,6 +148,53 @@ export function AnimatedChart() {
       }
     }
 
+    // Check and adjust downward shift based on line position
+    const adjustDownwardShift = () => {
+      if (dataPoints.length === 0) return
+
+      // Find the average Y position of visible points
+      let sum = 0
+      let count = 0
+      for (let i = 0; i < dataPoints.length; i++) {
+        const x = i * config.pointSpacing - offset
+        if (x >= 0 && x <= canvas.width) {
+          sum += dataPoints[i] + verticalOffset
+          count++
+        }
+      }
+
+      if (count === 0) return
+
+      const avgY = sum / count
+
+      // Define thresholds
+      const minY = canvas.height * config.minBoundary
+      const maxY = canvas.height * config.maxBoundary
+
+      // Adjust downward shift based on position
+      if (avgY < minY) {
+        // Line is too high (above threshold), increase downward shift
+        outOfBoundsFrames++
+        const distanceFromMin = (minY - avgY) / canvas.height
+        // Multiply by time factor: more frames out of bounds = stronger correction
+        const timeFactor = Math.min(outOfBoundsFrames / 60, 3) // Cap at 3x after 1 second
+        downwardShift = config.baseDownwardShift + distanceFromMin * 2 * (1 + timeFactor)
+        console.log('too high');
+      } else if (avgY > maxY) {
+        // Line is too low (below threshold), decrease downward shift
+        outOfBoundsFrames++
+        const distanceFromMax = (avgY - maxY) / canvas.height
+        // Multiply by time factor: more frames out of bounds = stronger correction
+        const timeFactor = Math.min(outOfBoundsFrames / 60, 3) // Cap at 3x after 1 second
+        downwardShift = Math.max(-config.baseDownwardShift, config.baseDownwardShift - distanceFromMax * 2 * (1 + timeFactor))
+        console.log('too low');
+      } else {
+        // Line is within bounds, reset counter and gradually return to base speed
+        outOfBoundsFrames = 0
+        downwardShift += (config.baseDownwardShift - downwardShift) * 0.1
+      }
+    }
+
     // Animation loop
     const animate = () => {
       if (dataPoints.length === 0) {
@@ -163,11 +211,8 @@ export function AnimatedChart() {
         }
       } else {
         // Adjust downward shift to keep line in bounds
-        // adjustDownwardShift()
+        adjustDownwardShift()
 
-        // Define thresholds
-        const minY = canvas.height * config.minBoundary
-        const maxY = canvas.height * config.maxBoundary
         // Normal scrolling animation
         offset += config.speed
         verticalOffset += downwardShift
@@ -179,12 +224,7 @@ export function AnimatedChart() {
           const lastPoint = dataPoints[dataPoints.length - 1]
           const randomChange = (Math.random() - 0.5) * canvas.height * config.volatility
           const bigMove = Math.random() < 0.05 ? (Math.random() - 0.5) * canvas.height * config.volatility * 3 : 0
-          let newY = lastPoint + config.upwardTrend + randomChange + bigMove
-          if (newY > maxY) {
-            newY = maxY + randomChange;
-          } else if (newY < minY) {
-            newY = minY - randomChange;
-          }
+          const newY = lastPoint + config.upwardTrend + randomChange + bigMove
           dataPoints.push(newY)
         }
       }
