@@ -178,7 +178,7 @@ export function AnimatedChart() {
         outOfBoundsFrames++
         const distanceFromMax = (curMax - maxY) / canvas.height
         // Multiply by time factor: more frames out of bounds = stronger correction
-        const timeFactor = Math.min(outOfBoundsFrames / 20, 10) // Cap at 3x after 1 second
+        const timeFactor = Math.min(outOfBoundsFrames / 60, 2) // Cap at 3x after 1 second
         downwardShift = Math.max(-config.baseDownwardShift, config.baseDownwardShift - distanceFromMax * 2 * (1 + timeFactor))
       } else {
         // Line is within bounds, reset counter and gradually return to base speed
