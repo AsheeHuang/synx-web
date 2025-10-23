@@ -36,23 +36,23 @@ export function HeroSection({ language }: HeroSectionProps) {
             {/* Mobile: Stacked overlapping layout */}
             <div className="relative sm:hidden w-full max-w-sm h-[380px]">
               {/* Bottom image - positioned to the left and lower */}
-              <div className="absolute bottom-0 left-12 w-40 h-[320px] rounded-3xl overflow-hidden animate-float-up-delay-1 bg-transparent" style={{ filter: 'drop-shadow(0 20px 40px rgba(0, 0, 0, 0.3))' }}>
+              <div className="absolute bottom-0 left-12 w-40 h-[320px] rounded-3xl overflow-hidden animate-float-up-delay-1" style={{ filter: 'drop-shadow(0 20px 40px rgba(0, 0, 0, 0.3))' }}>
                 <Image
                   src="/screenshots/shot2.png"
                   alt="Synx App Screenshot 2"
                   width={384}
                   height={768}
-                  className="w-full h-full object-contain bg-transparent"
+                  className="w-full h-full object-cover"
                 />
               </div>
               {/* Top image - overlaps bottom right, positioned top right */}
-              <div className="absolute top-0 right-12 w-44 h-[352px] rounded-3xl overflow-hidden animate-float-up bg-transparent" style={{ filter: 'drop-shadow(0 20px 40px rgba(0, 0, 0, 0.3))' }}>
+              <div className="absolute top-0 right-12 w-44 h-[352px] rounded-3xl overflow-hidden animate-float-up" style={{ filter: 'drop-shadow(0 20px 40px rgba(0, 0, 0, 0.3))' }}>
                 <Image
                   src="/screenshots/shot1.png"
                   alt="Synx App Screenshot 1"
                   width={384}
                   height={768}
-                  className="w-full h-full object-contain bg-transparent"
+                  className="w-full h-full object-cover"
                 />
               </div>
             </div>
