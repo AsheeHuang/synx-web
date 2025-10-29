@@ -93,11 +93,11 @@ export const translations = {
       title: "你的資產，時時同步",
       subtitle: "從即時市場到自動化金流，Synx 讓你清楚又安全地掌握全局財務狀況。",
       appStore: {
-        line1: "下載於",
+        line1: "Download on the",
         line2: "App Store",
       },
       playStore: {
-        line1: "即將推出",
+        line1: "Get it on",
         line2: "Google Play",
       },
     },
