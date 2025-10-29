@@ -38,31 +38,38 @@ export function FeaturesSection({ language }: FeaturesSectionProps) {
 
   const features = [
     {
+      title: t.features.visualize.title,
+      description: t.features.visualize.description,
+      imagePosition: "left" as const,
+      background: "bg-gradient-to-br from-orange-50/50 to-amber-50/50 dark:from-orange-950/30 dark:to-amber-950/30",
+      screenshot: "/screenshots/shot7.png",
+    },
+    {
       title: t.features.portfolio.title,
       description: t.features.portfolio.description,
-      imagePosition: "left" as const,
-      background: "bg-gradient-to-br from-blue-50/50 to-cyan-50/50 dark:from-blue-950/30 dark:to-cyan-950/30",
+      imagePosition: "right" as const,
+      background: "bg-gradient-to-bl from-blue-50/50 to-cyan-50/50 dark:from-blue-950/30 dark:to-cyan-950/30",
       screenshot: "/screenshots/shot5.png",
     },
     {
       title: t.features.transactions.title,
       description: t.features.transactions.description,
-      imagePosition: "right" as const,
-      background: "bg-gradient-to-bl from-orange-50/50 to-amber-50/50 dark:from-orange-950/30 dark:to-amber-950/30",
+      imagePosition: "left" as const,
+      background: "bg-gradient-to-br from-orange-50/50 to-amber-50/50 dark:from-orange-950/30 dark:to-amber-950/30",
       screenshot: "/screenshots/shot6.png",
     },
     {
       title: t.features.multiCurrency.title,
       description: t.features.multiCurrency.description,
-      imagePosition: "left" as const,
-      background: "bg-gradient-to-br from-emerald-50/50 to-teal-50/50 dark:from-emerald-950/30 dark:to-teal-950/30",
+      imagePosition: "right" as const,
+      background: "bg-gradient-to-bl from-emerald-50/50 to-teal-50/50 dark:from-emerald-950/30 dark:to-teal-950/30",
       screenshot: "/screenshots/shot3.png",
     },
     {
       title: t.features.privacy.title,
       description: t.features.privacy.description,
-      imagePosition: "right" as const,
-      background: "bg-gradient-to-bl from-amber-50/50 to-orange-50/50 dark:from-amber-950/30 dark:to-orange-950/30",
+      imagePosition: "left" as const,
+      background: "bg-gradient-to-br from-amber-50/50 to-orange-50/50 dark:from-amber-950/30 dark:to-orange-950/30",
       screenshot: "/screenshots/shot4.png",
     },
   ]
@@ -99,7 +106,7 @@ export function FeaturesSection({ language }: FeaturesSectionProps) {
                         alt={feature.title}
                         width={384}
                         height={768}
-                        className="w-full h-full object-cover"
+                        className="w-full h-full object-contain"
                       />
                     </div>
                   </div>
@@ -130,7 +137,7 @@ export function FeaturesSection({ language }: FeaturesSectionProps) {
                         alt={feature.title}
                         width={384}
                         height={768}
-                        className="w-full h-full object-cover"
+                        className="w-full h-full object-contain"
                       />
                     </div>
                   </div>

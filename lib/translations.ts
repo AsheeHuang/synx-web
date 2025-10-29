@@ -15,12 +15,16 @@ export const translations = {
         line2: "App Store",
       },
       playStore: {
-        line1: "Coming Soon",
+        line1: "Get it on",
         line2: "Google Play",
       },
     },
     features: {
       title: "Features",
+      visualize: {
+        title: "Visualize Your Financial Journey",
+        description: "See your net worth come to life through interactive line charts. Switch between time ranges, assets, investments, and liabilities — and understand your financial direction at a glance.",
+      },
       portfolio: {
         title: "Real-Time Market Sync",
         description: "Your assets stay perfectly aligned with real-time prices from major global markets — including the U.S., Taiwan, China, the U.K., and crypto, with more on the way.",
@@ -138,6 +142,10 @@ export const translations = {
     },
     features: {
       title: "功能",
+      visualize: {
+        title: "視覺化你的財務旅程",
+        description: "用互動折線圖清楚看見你的淨資產變化。可自由切換時間區間、資產、投資與負債，一眼掌握財務走向。",
+      },
       portfolio: {
         title: "即時市場同步",
         description: "您的資產與全球主要市場的即時價格完美同步——包括美國、台灣、中國、英國和加密貨幣，更多市場即將推出。",
