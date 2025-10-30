@@ -36,45 +36,45 @@ export function HeroSection({ language }: HeroSectionProps) {
             {/* Mobile: Stacked overlapping layout */}
             <div className="relative sm:hidden w-full max-w-sm h-[380px]">
               {/* Bottom image - positioned to the left and lower */}
-              <div className="absolute bottom-0 left-12 w-40 h-[320px] rounded-3xl overflow-hidden animate-float-up-delay-1" style={{ filter: 'drop-shadow(0 20px 40px rgba(0, 0, 0, 0.3))' }}>
+              <div className="absolute bottom-0 left-12 w-40 h-[320px] animate-float-up-delay-1">
                 <Image
                   src="/screenshots/shot2.png"
                   alt="Synx App Screenshot 2"
                   width={384}
                   height={768}
-                  className="w-full h-full object-contain"
+                  className="w-full h-full object-contain drop-shadow-[0_20px_40px_rgba(0,0,0,0.3)]"
                 />
               </div>
               {/* Top image - overlaps bottom right, positioned top right */}
-              <div className="absolute top-0 right-12 w-44 h-[352px] rounded-3xl overflow-hidden animate-float-up" style={{ filter: 'drop-shadow(0 20px 40px rgba(0, 0, 0, 0.3))' }}>
+              <div className="absolute top-0 right-12 w-44 h-[352px] animate-float-up">
                 <Image
                   src="/screenshots/shot1.png"
                   alt="Synx App Screenshot 1"
                   width={384}
                   height={768}
-                  className="w-full h-full object-contain"
+                  className="w-full h-full object-contain drop-shadow-[0_20px_40px_rgba(0,0,0,0.3)]"
                 />
               </div>
             </div>
 
             {/* Desktop: Side by side layout */}
             <div className="hidden sm:flex items-center justify-center gap-6">
-              <div className="w-64 h-[512px] rounded-3xl overflow-hidden animate-float-up" style={{ filter: 'drop-shadow(0 20px 40px rgba(0, 0, 0, 0.3))' }}>
+              <div className="w-64 h-[512px] animate-float-up">
                 <Image
                   src="/screenshots/shot1.png"
                   alt="Synx App Screenshot 1"
                   width={384}
                   height={768}
-                  className="w-full h-full object-contain"
+                  className="w-full h-full object-contain drop-shadow-[0_20px_40px_rgba(0,0,0,0.3)]"
                 />
               </div>
-              <div className="w-64 h-[512px] rounded-3xl overflow-hidden animate-float-up-delay-1" style={{ filter: 'drop-shadow(0 20px 40px rgba(0, 0, 0, 0.3))' }}>
+              <div className="w-64 h-[512px] animate-float-up-delay-1">
                 <Image
                   src="/screenshots/shot2.png"
                   alt="Synx App Screenshot 2"
                   width={384}
                   height={768}
-                  className="w-full h-full object-contain"
+                  className="w-full h-full object-contain drop-shadow-[0_20px_40px_rgba(0,0,0,0.3)]"
                 />
               </div>
             </div>
