@@ -61,6 +61,12 @@ export function Header({ language, setLanguage }: HeaderProps) {
               {t.nav.features}
             </button>
             <button
+              onClick={() => scrollToSection("faq")}
+              className="text-sm lg:text-base text-muted-foreground hover:text-foreground transition-colors"
+            >
+              {t.nav.faq}
+            </button>
+            <button
               onClick={() => scrollToSection("contact")}
               className="text-sm lg:text-base text-muted-foreground hover:text-foreground transition-colors"
             >
