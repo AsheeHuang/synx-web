@@ -94,6 +94,8 @@ export const translations = {
     },
     footer: {
       contact: "Contact",
+      termsOfUse: "Terms of Use",
+      privacyPolicy: "Privacy Policy",
       copyright: "© 2025 Synx. All rights reserved.",
     },
     inside: {
@@ -214,6 +216,8 @@ export const translations = {
     },
     footer: {
       contact: "聯絡",
+      termsOfUse: "使用條款",
+      privacyPolicy: "隱私政策",
       copyright: "© 2025 Synx. All rights reserved.",
     },
     inside: {
