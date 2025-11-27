@@ -72,6 +72,13 @@ export function FeaturesSection({ language }: FeaturesSectionProps) {
       background: "bg-gradient-to-br from-amber-50/50 to-orange-50/50 dark:from-amber-950/30 dark:to-orange-950/30",
       screenshot: "/screenshots/shot4.png",
     },
+    {
+      title: t.features.investmentDashboard.title,
+      description: t.features.investmentDashboard.description,
+      imagePosition: "right" as const,
+      background: "bg-gradient-to-bl from-purple-50/50 to-pink-50/50 dark:from-purple-950/30 dark:to-pink-950/30",
+      screenshot: "/screenshots/shot8.png",
+    },
   ]
 
   return (
@@ -89,7 +96,7 @@ export function FeaturesSection({ language }: FeaturesSectionProps) {
       {features.map((feature, index) => (
         <div
           key={index}
-          className={`py-16 sm:py-24 lg:py-32 ${feature.background}`}
+          className={`py-12 sm:py-16 lg:py-20 ${feature.background}`}
         >
           <div className="container mx-auto px-4 sm:px-6 lg:px-8">
             <div className="max-w-6xl mx-auto">

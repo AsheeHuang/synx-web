@@ -24,15 +24,15 @@ export const translations = {
       title: "Features",
       visualize: {
         title: "Visualize Your Financial Journey",
-        description: "See your net worth come to life through interactive line charts. Switch between time ranges, assets, investments, and liabilities — and understand your financial direction at a glance.",
+        description: "See your net worth come to life through interactive line charts. Switch between time ranges, assets, investments, and liabilities to understand your financial direction at a glance.",
       },
       portfolio: {
         title: "Real-Time Market Sync",
-        description: "Your assets stay perfectly aligned with real-time prices from major global markets — including the U.S., Taiwan, China, the U.K., and crypto, with more on the way.",
+        description: "Your assets stay perfectly aligned with real-time prices from major global markets including the U.S., Taiwan, China, U.K, precious metal and crypto, with more on the way.",
       },
       transactions: {
         title: "Customizable Portfolio Insights",
-        description: "Visualize your entire portfolio with clear performance metrics, growth trends, and asset proportions — create custom views that match your investment style.",
+        description: "Visualize your entire portfolio with clear performance metrics, growth trends, and asset proportions. Create custom views that match your investment style.",
       },
       multiCurrency: {
         title: "Automated Transaction Management",
@@ -40,7 +40,11 @@ export const translations = {
       },
       privacy: {
         title: "Privacy First, Always.",
-        description: "Your data stays on your device — never uploaded to any server. With Face ID protection and one-tap privacy mode, Synx keeps your portfolio secure while letting you control what's visible.",
+        description: "Your data stays on your device and is never uploaded to any server. With Face ID protection and one-tap privacy mode, Synx keeps your portfolio secure while letting you control what's visible.",
+      },
+      investmentDashboard: {
+        title: "Investment Dashboard",
+        description: "The Investment Dashboard gives you a clear snapshot of your portfolio. See your cost basis, unrealized and realized P&L, and explore interactive charts showing price, average cost, and market value trends. Understand your investment performance at a glance.",
       },
     },
     faq: {
@@ -150,7 +154,7 @@ export const translations = {
       },
       portfolio: {
         title: "即時市場同步",
-        description: "您的資產與全球主要市場的即時價格完美同步——包括美國、台灣、中國、英國和加密貨幣，更多市場即將推出。",
+        description: "您的資產與全球主要市場的即時價格完美同步，包括美國、台灣、中國、英國、貴金屬和加密貨幣，更多市場即將推出。",
       },
       transactions: {
         title: "自訂投資組合",
@@ -163,6 +167,10 @@ export const translations = {
       privacy: {
         title: "隱私至上 始終如一",
         description: "您的資料保存在您的裝置上——永不上傳至任何伺服器。透過 Face ID 保護和一鍵隱私模式，Synx 確保您的投資組合安全，同時讓您控制可見內容。",
+      },
+      investmentDashboard: {
+        title: "投資儀表板",
+        description: "投資儀表板讓你快速掌握投資全貌。清楚查看成本、未實現與已實現損益，並透過互動式圖表了解股價、平均成本與市值的變化。用最直觀的方式看懂你的投資表現。",
       },
     },
     faq: {
