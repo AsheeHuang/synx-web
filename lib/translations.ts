@@ -46,6 +46,23 @@ export const translations = {
         title: "Investment Dashboard",
         description: "The Investment Dashboard gives you a clear snapshot of your portfolio. See your cost basis, unrealized and realized P&L, and explore interactive charts showing price, average cost, and market value trends. Understand your investment performance at a glance.",
       },
+      banner: {
+        multiCurrency: {
+          title: "Multi-Currency Support",
+        },
+        offline: {
+          title: "Offline First",
+        },
+        icloudBackup: {
+          title: "iCloud Auto Backup",
+        },
+        privacy: {
+          title: "Privacy First",
+        },
+        batchTransactions: {
+          title: "Batch Transactions",
+        },
+      },
     },
     faq: {
       title: "Frequently Asked Questions",
@@ -170,7 +187,24 @@ export const translations = {
       },
       investmentDashboard: {
         title: "投資儀表板",
-        description: "投資儀表板讓你快速掌握投資全貌。清楚查看成本、未實現與已實現損益，並透過互動式圖表了解股價、平均成本與市值的變化。用最直觀的方式看懂你的投資表現。",
+        description: "個股儀表板讓你快速掌握投資全貌。清楚查看成本、未實現與已實現損益，並透過互動式圖表了解股價、平均成本與市值的變化。用最直觀的方式看懂你的投資表現。",
+      },
+      banner: {
+        multiCurrency: {
+          title: "多幣別支援",
+        },
+        offline: {
+          title: "離線優先",
+        },
+        icloudBackup: {
+          title: "iCloud 自動備份",
+        },
+        privacy: {
+          title: "隱私至上",
+        },
+        batchTransactions: {
+          title: "批次新增交易",
+        },
       },
     },
     faq: {

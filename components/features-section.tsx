@@ -66,17 +66,10 @@ export function FeaturesSection({ language }: FeaturesSectionProps) {
       screenshot: "/screenshots/shot3.png",
     },
     {
-      title: t.features.privacy.title,
-      description: t.features.privacy.description,
-      imagePosition: "left" as const,
-      background: "bg-gradient-to-br from-amber-50/50 to-orange-50/50 dark:from-amber-950/30 dark:to-orange-950/30",
-      screenshot: "/screenshots/shot4.png",
-    },
-    {
       title: t.features.investmentDashboard.title,
       description: t.features.investmentDashboard.description,
-      imagePosition: "right" as const,
-      background: "bg-gradient-to-bl from-purple-50/50 to-pink-50/50 dark:from-purple-950/30 dark:to-pink-950/30",
+      imagePosition: "left" as const,
+      background: "bg-gradient-to-br from-purple-50/50 to-pink-50/50 dark:from-purple-950/30 dark:to-pink-950/30",
       screenshot: "/screenshots/shot8.png",
     },
   ]
@@ -154,6 +147,95 @@ export function FeaturesSection({ language }: FeaturesSectionProps) {
           </div>
         </div>
       ))}
+
+      {/* Banner Features */}
+      <div className="py-16 sm:py-20 lg:py-24 bg-gradient-to-r from-slate-50/50 to-gray-50/50 dark:from-slate-950/30 dark:to-gray-950/30">
+        <div className="container mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="max-w-6xl mx-auto">
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-8 sm:gap-10">
+              {/* Multi-Currency */}
+              <div className="flex flex-col items-center text-center">
+                <div className="w-16 h-16 sm:w-20 sm:h-20 flex items-center justify-center mb-4 sm:mb-6">
+                  <Image
+                    src="/icons/1.svg"
+                    alt={t.features.banner.multiCurrency.title}
+                    width={80}
+                    height={80}
+                    className="w-full h-full"
+                  />
+                </div>
+                <h3 className="text-lg sm:text-xl lg:text-2xl font-semibold text-foreground">
+                  {t.features.banner.multiCurrency.title}
+                </h3>
+              </div>
+
+              {/* Offline First */}
+              <div className="flex flex-col items-center text-center">
+                <div className="w-16 h-16 sm:w-20 sm:h-20 flex items-center justify-center mb-4 sm:mb-6">
+                  <Image
+                    src="/icons/2.svg"
+                    alt={t.features.banner.offline.title}
+                    width={80}
+                    height={80}
+                    className="w-full h-full"
+                  />
+                </div>
+                <h3 className="text-lg sm:text-xl lg:text-2xl font-semibold text-foreground">
+                  {t.features.banner.offline.title}
+                </h3>
+              </div>
+
+              {/* iCloud Backup */}
+              <div className="flex flex-col items-center text-center">
+                <div className="w-16 h-16 sm:w-20 sm:h-20 flex items-center justify-center mb-4 sm:mb-6">
+                  <Image
+                    src="/icons/3.svg"
+                    alt={t.features.banner.icloudBackup.title}
+                    width={80}
+                    height={80}
+                    className="w-full h-full"
+                  />
+                </div>
+                <h3 className="text-lg sm:text-xl lg:text-2xl font-semibold text-foreground">
+                  {t.features.banner.icloudBackup.title}
+                </h3>
+              </div>
+
+              {/* Privacy First */}
+              <div className="flex flex-col items-center text-center">
+                <div className="w-16 h-16 sm:w-20 sm:h-20 flex items-center justify-center mb-4 sm:mb-6">
+                  <Image
+                    src="/icons/4.svg"
+                    alt={t.features.banner.privacy.title}
+                    width={80}
+                    height={80}
+                    className="w-full h-full"
+                  />
+                </div>
+                <h3 className="text-lg sm:text-xl lg:text-2xl font-semibold text-foreground">
+                  {t.features.banner.privacy.title}
+                </h3>
+              </div>
+
+              {/* Batch Transactions */}
+              <div className="flex flex-col items-center text-center">
+                <div className="w-16 h-16 sm:w-20 sm:h-20 flex items-center justify-center mb-4 sm:mb-6">
+                  <Image
+                    src="/icons/5.svg"
+                    alt={t.features.banner.batchTransactions.title}
+                    width={80}
+                    height={80}
+                    className="w-full h-full"
+                  />
+                </div>
+                <h3 className="text-lg sm:text-xl lg:text-2xl font-semibold text-foreground">
+                  {t.features.banner.batchTransactions.title}
+                </h3>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
     </section>
   )
 }
