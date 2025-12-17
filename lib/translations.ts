@@ -28,7 +28,7 @@ export const translations = {
       },
       portfolio: {
         title: "Real-Time Market Sync",
-        description: "Your assets stay perfectly aligned with real-time prices from major global markets including the U.S., Taiwan, China, U.K, precious metal and crypto, with more on the way.",
+        description: "Your assets stay perfectly aligned with real-time prices from major global markets including the U.S., Taiwan, China, U.K., precious metals, and cryptocurrencies. You can also manually add assets from other markets.",
       },
       transactions: {
         title: "Customizable Portfolio Insights",
@@ -81,7 +81,7 @@ export const translations = {
         },
         {
           question: "Which markets and currencies does Synx support?",
-          answer: "Synx currently supports live market price syncing for the U.S., Taiwan, China, the U.K., and cryptocurrencies. For currencies, you can track assets in USD, TWD, JPY, EUR, CNY, and GBP, with more markets and currencies continuously being added.\n\nYou can also manually track other asset types such as real estate, bank accounts, or valuables like jewelry to get a complete and accurate view of your total net worth.",
+          answer: "Synx currently supports live market price syncing for the U.S., Taiwan, China, the U.K., cryptocurrencies, and precious metals. You can also manually add assets from other markets. For currencies, most major currencies are supported, with more markets and currencies continuously being added.\n\nYou can also manually track other asset types such as real estate, bank accounts, or valuables like jewelry to get a complete and accurate view of your total net worth.",
         },
         {
           question: "Can Synx sync with my bank accounts?",
@@ -171,7 +171,7 @@ export const translations = {
       },
       portfolio: {
         title: "即時市場同步",
-        description: "您的資產與全球主要市場的即時價格完美同步，包括美國、台灣、中國、英國、貴金屬和加密貨幣，更多市場即將推出。",
+        description: "您的資產與全球主要市場的即時價格完美同步，包括美國、台灣、中國、英國、貴金屬和加密貨幣。您也可以手動新增其他市場的資產。",
       },
       transactions: {
         title: "自訂投資組合",
@@ -224,7 +224,7 @@ export const translations = {
         },
         {
           question: "Synx 支援哪些市場與幣別？",
-          answer: "Synx 目前支援 美國、台灣、中國、英國與加密貨幣的市場價格同步。在幣別方面，目前可使用 美金（USD）、台幣（TWD）、日圓（JPY）、歐元（EUR）、人民幣（CNY） 與 英鎊（GBP），未來還會持續新增更多市場與幣別。\n\n此外，你也可以手動追蹤其他資產，例如房地產、銀行帳戶或珠寶等項目，以獲得更完整的淨資產視圖。",
+          answer: "Synx 目前支援 美國、台灣、中國、英國、加密貨幣與貴金屬的市場價格同步，你也可以手動新增其他市場的資產。在幣別方面，支援大多數主流貨幣，未來還會持續新增更多市場與幣別。\n\n此外，你也可以手動追蹤其他資產，例如房地產、銀行帳戶或珠寶等項目，以獲得更完整的淨資產視圖。",
         },
         {
           question: "Synx 可以同步銀行帳戶嗎？",
