@@ -36,7 +36,7 @@ export const translations = {
       },
       multiCurrency: {
         title: "Automated Transaction Management",
-        description: "Handle recurring payments, flexible investments, and even uncertain amounts with ease. Synx automatically tracks your cash flow, manages transfers, and reminds you when it's time to act.",
+        description: "Synx handles fixed and variable transactions differently to maximize efficiency. Fixed income and expenses execute automatically in the background, while variable investments like DCA are pre-filled based on real-time market data. You simply review and confirm in one tap, saving time while ensuring your portfolio costs remain accurate.",
       },
       privacy: {
         title: "Privacy First, Always.",
@@ -179,7 +179,7 @@ export const translations = {
       },
       multiCurrency: {
         title: "自動交易管理",
-        description: "輕鬆處理定期付款、彈性投資，甚至不確定的金額。Synx 自動追蹤您的現金流、管理轉帳，並在該行動時提醒您。",
+        description: "Synx 針對交易性質提供最適合的處理方式。薪資與房租等固定收支會全自動執行，讓記帳完全隱形；對於定期定額等變動投資，系統則依據市場數據預先填好資料。您只需一鍵確認，就能在省下時間的同時，確保投資成本絕對精準。",
       },
       privacy: {
         title: "隱私至上 始終如一",

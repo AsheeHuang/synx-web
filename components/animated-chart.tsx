@@ -52,10 +52,25 @@ export function AnimatedChart() {
       const numPoints = Math.ceil(canvas.width / config.pointSpacing)
       let currentY = canvas.height * 0.75
 
+      // Set boundaries to prevent initial price from going too extreme
+      const upperBound = canvas.height * config.minBoundary // 30% from top
+      const lowerBound = canvas.height * config.maxBoundary // 70% from top
+
       for (let i = 0; i < numPoints; i++) {
         const randomChange = (Math.random() - 0.5) * canvas.height * config.volatility
         const bigMove = Math.random() < 0.05 ? (Math.random() - 0.5) * canvas.height * config.volatility * 4 : 0
-        currentY = currentY + config.upwardTrend + randomChange + bigMove
+        let newY = currentY + config.upwardTrend + randomChange + bigMove
+
+        // Soft boundary: add resistance when approaching bounds
+        if (newY < upperBound) {
+          const overshoot = upperBound - newY
+          newY = upperBound - overshoot * 0.3 // Reduce overshoot by 70%
+        } else if (newY > lowerBound) {
+          const overshoot = newY - lowerBound
+          newY = lowerBound + overshoot * 0.3 // Reduce overshoot by 70%
+        }
+
+        currentY = newY
         dataPoints.push(currentY)
       }
 
@@ -152,8 +167,7 @@ export function AnimatedChart() {
     const adjustDownwardShift = () => {
       if (dataPoints.length === 0) return
 
-      // Find the average Y position of visible points
-      let sum = 0
+      // Find the min and max Y position of visible points
       let curMin = canvas.height;
       let curMax = 0;
       for (let i = 0; i < dataPoints.length; i++) {
