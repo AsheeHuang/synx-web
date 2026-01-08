@@ -28,7 +28,7 @@ export const translations = {
       },
       portfolio: {
         title: "Real-Time Market Sync",
-        description: "Your assets stay perfectly aligned with real-time prices from major global markets including the U.S., Taiwan, China, U.K., precious metals, and cryptocurrencies. You can also manually add assets from other markets.",
+        description: "Your assets stay perfectly aligned with real-time prices from major global markets including the U.S., Taiwan, China, U.K., Japan, Hong Kong, precious metals, and cryptocurrencies. You can also manually add assets from other markets.",
       },
       transactions: {
         title: "Customizable Portfolio Insights",
@@ -171,7 +171,7 @@ export const translations = {
       },
       portfolio: {
         title: "即時市場同步",
-        description: "您的資產與全球主要市場的即時價格完美同步，包括美國、台灣、中國、英國、貴金屬和加密貨幣。您也可以手動新增其他市場的資產。",
+        description: "您的資產與全球主要市場的即時價格完美同步，包括美國、台灣、中國、英國、日本、香港、貴金屬和加密貨幣。您也可以手動新增其他市場的資產。",
       },
       transactions: {
         title: "自訂投資組合",
