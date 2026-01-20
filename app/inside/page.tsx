@@ -1,77 +1,148 @@
 "use client"
 
-import { useState } from "react"
+import { useState, useEffect } from "react"
 import Image from "next/image"
 import Link from "next/link"
 import { Button } from "@/components/ui/button"
 import { Menu, X } from "lucide-react"
+import { translations } from "@/lib/translations"
+import ReactMarkdown from 'react-markdown'
+import remarkGfm from 'remark-gfm'
 
 export default function GuidePage() {
   const [language, setLanguage] = useState<"en" | "zh">("en")
-  const [activeSection, setActiveSection] = useState("core-philosophy")
+  const [activeSection, setActiveSection] = useState("corePhilosophy")
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false)
+  const [markdownContent, setMarkdownContent] = useState("")
 
   const toggleLanguage = () => {
     setLanguage(language === "en" ? "zh" : "en")
   }
 
+  const t = translations[language].guide
+
   // Guide structure
   const guideStructure = [
     {
       id: "introduction",
-      title: language === "en" ? "Synx Introduction" : "Synx 簡介",
+      title: t.introduction.title,
       subsections: [
         {
-          id: "core-philosophy",
-          title: language === "en" ? "Core Philosophy" : "核心理念",
-          content: []
+          id: "corePhilosophy",
+          title: t.introduction.corePhilosophy.title,
+          content: t.introduction.corePhilosophy.content
         },
         {
           id: "features",
-          title: language === "en" ? "Features Overview" : "功能介紹",
-          content: []
+          title: t.introduction.features.title,
+          content: t.introduction.features.content
         },
-        {
-          id: "inside-synx",
-          title: language === "en" ? "Developer's Notes" : "開發者的話",
-          content: []
-        }
       ]
-    },
-    {
-      id: "user-guide",
-      title: language === "en" ? "User Guide" : "使用指南",
+    }, {
+      id: "userGuide",
+      title: t.userGuide.title,
       subsections: [
         {
           id: "interface",
-          title: language === "en" ? "Understanding the Interface" : "認識介面",
-          content: []
+          title: t.userGuide.interface.title,
+          content: t.userGuide.interface.content
         },
         {
-          id: "overview-page",
-          title: language === "en" ? "Overview Page" : "總覽頁面",
-          content: []
+          id: "addAccount",
+          title: t.userGuide.addAccount.title,
+          content: t.userGuide.addAccount.content
         },
         {
-          id: "portfolio-page",
-          title: language === "en" ? "Portfolio Page" : "投資組合頁面",
-          content: []
+          id: "addTransaction",
+          title: t.userGuide.addTransaction.title,
+          content: t.userGuide.addTransaction.content
+        },
+        {
+          id: "addPortfolio",
+          title: t.userGuide.addPortfolio.title,
+          content: t.userGuide.addPortfolio.content
+        },
+        {
+          id: "recurring",
+          title: t.userGuide.recurring.title,
+          content: t.userGuide.recurring.content
+        },
+        {
+          id: "adjustBalance",
+          title: t.userGuide.adjustBalance.title,
+          content: t.userGuide.adjustBalance.content
         }
       ]
     },
     {
       id: "advanced",
-      title: language === "en" ? "Advanced Topics" : "進階主題",
+      title: t.advanced.title,
+      subsections: [
+        {
+          id: "dividend",
+          title: t.advanced.dividend.title,
+          content: t.advanced.dividend.content
+        },
+        {
+          id: "bulkTransactions",
+          title: t.advanced.bulkTransactions.title,
+          content: t.advanced.bulkTransactions.content
+        },
+        {
+          id: "groups",
+          title: t.advanced.groups.title,
+          content: t.advanced.groups.content
+        },
+        {
+          id: "exclude",
+          title: t.advanced.exclude.title,
+          content: t.advanced.exclude.content
+        },
+        {
+          id: "order",
+          title: t.advanced.order.title,
+          content: t.advanced.order.content
+        },
+        {
+          id: "archive",
+          title: t.advanced.archive.title,
+          content: t.advanced.archive.content
+        },
+        {
+          id: "dashboard",
+          title: t.advanced.dashboard.title,
+          content: t.advanced.dashboard.content
+        }
+      ]
+    },
+    {
+      id: "others",
+      title: t.others.title,
       subsections: [
         {
           id: "privacy",
-          title: language === "en" ? "Privacy & Security" : "隱私與安全",
-          content: []
+          title: t.others.privacy.title,
+          content: t.others.privacy.content
         },
         {
-          id: "tips",
-          title: language === "en" ? "Tips & Tricks" : "使用技巧",
-          content: []
+          id: "cost",
+          title: t.others.cost.title,
+          content: t.others.cost.content
+        },
+        {
+          id: "pricing",
+          title: t.others.pricing.title,
+          content: t.others.pricing.content
+        },
+        {
+          id: "dataDelay",
+          title: t.others.dataDelay.title,
+          content: t.others.dataDelay.content
+        },
+        {
+          id: "aboutDeveloper",
+          title: t.others.aboutDeveloper.title,
+          content: t.others.aboutDeveloper.content
         }
       ]
     }
@@ -87,6 +158,45 @@ export default function GuidePage() {
   }
 
   const currentSubsection = getCurrentSubsection()
+
+  // Markdown file mapping
+  const mdFileMap: Record<string, string> = {
+    corePhilosophy: "core-philosophy",
+    features: "features",
+    interface: "interface",
+    addAccount: "add-account",
+    addTransaction: "add-transaction",
+    addPortfolio: "add-portfolio",
+    recurring: "recurring",
+    adjustBalance: "adjust-balance",
+  }
+
+  // Load markdown content when section changes
+  useEffect(() => {
+    const loadMarkdown = async () => {
+      const fileName = mdFileMap[activeSection]
+      if (!fileName) {
+        setMarkdownContent(currentSubsection.content)
+        return
+      }
+
+      try {
+        const response = await fetch(`/inside/content/${language}/${fileName}.md`)
+        if (response.ok) {
+          const text = await response.text()
+          setMarkdownContent(text)
+        } else {
+          setMarkdownContent(currentSubsection.content)
+        }
+      } catch (error) {
+        console.error("Failed to load markdown:", error)
+        setMarkdownContent(currentSubsection.content)
+      }
+    }
+
+    loadMarkdown()
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [activeSection, language])
 
   return (
     <div className="min-h-screen bg-white">
@@ -166,12 +276,28 @@ export default function GuidePage() {
               {currentSubsection.title}
             </h1>
 
-            <div className="prose prose-lg max-w-none">
-              <p className="text-gray-600 italic">
-                {language === "en"
-                  ? "Content coming soon..."
-                  : "內容即將推出..."}
-              </p>
+            <div className="prose prose-lg max-w-none text-gray-700 leading-relaxed">
+              <ReactMarkdown
+                remarkPlugins={[remarkGfm]}
+                components={{
+                  h4: ({node, ...props}) => <h4 className="text-xl font-semibold mt-8 mb-4 text-gray-900" {...props} />,
+                  h3: ({node, ...props}) => <h3 className="text-2xl font-bold mt-10 mb-6 text-gray-900" {...props} />,
+                  p: ({node, ...props}) => <p className="mb-4 leading-relaxed" {...props} />,
+                  ul: ({node, ...props}) => <ul className="mb-4 ml-6 space-y-2 list-disc" {...props} />,
+                  ol: ({node, ...props}) => <ol className="mb-4 ml-6 space-y-2 list-decimal" {...props} />,
+                  li: ({node, ...props}) => <li className="leading-relaxed" {...props} />,
+                  strong: ({node, ...props}) => <strong className="font-semibold text-gray-900" {...props} />,
+                  em: ({node, ...props}) => <em className="italic" {...props} />,
+                  a: ({node, ...props}) => <a className="text-blue-600 hover:text-blue-800 underline" {...props} />,
+                  blockquote: ({node, ...props}) => <blockquote className="border-l-4 border-gray-300 pl-4 italic my-4 text-gray-600" {...props} />,
+                  code: ({node, inline, ...props}: any) =>
+                    inline
+                      ? <code className="bg-gray-100 px-1.5 py-0.5 rounded text-sm font-mono text-gray-800" {...props} />
+                      : <code className="block bg-gray-100 p-4 rounded-lg text-sm font-mono overflow-x-auto" {...props} />,
+                }}
+              >
+                {markdownContent}
+              </ReactMarkdown>
             </div>
           </article>
         </main>
