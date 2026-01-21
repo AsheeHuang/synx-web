@@ -315,9 +315,9 @@ export default function GuidePage() {
               <ReactMarkdown
                 remarkPlugins={[remarkGfm]}
                 components={{
-                  h2: ({node, ...props}) => <h2 className="text-3xl font-bold mt-12 mb-6 text-gray-900" {...props} />,
-                  h3: ({node, ...props}) => <h3 className="text-2xl font-bold mt-10 mb-6 text-gray-900" {...props} />,
-                  h4: ({node, ...props}) => <h4 className="text-xl font-semibold mt-8 mb-4 text-gray-900" {...props} />,
+                  h2: ({node, ...props}) => <h2 className="text-2xl font-bold mt-12 mb-6 text-gray-900" {...props} />,
+                  h3: ({node, ...props}) => <h3 className="text-xl font-bold mt-10 mb-6 text-gray-900" {...props} />,
+                  h4: ({node, ...props}) => <h4 className="text font-semibold mt-8 mb-4 text-gray-900" {...props} />,
                   p: ({node, ...props}) => <p className="mb-4 leading-relaxed" {...props} />,
                   ul: ({node, ...props}) => <ul className="mb-4 ml-6 space-y-2 list-disc" {...props} />,
                   ol: ({node, ...props}) => <ol className="mb-4 ml-6 space-y-2 list-decimal" {...props} />,
