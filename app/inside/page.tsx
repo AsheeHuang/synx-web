@@ -9,11 +9,22 @@ import { translations } from "@/lib/translations"
 import ReactMarkdown from 'react-markdown'
 import remarkGfm from 'remark-gfm'
 
+function getInitialLanguage(): "en" | "zh" {
+  if (typeof window === "undefined") return "en"
+
+  const browserLang = navigator.language || navigator.languages?.[0] || "en"
+  return browserLang.toLowerCase().startsWith("zh") ? "zh" : "en"
+}
+
 export default function GuidePage() {
   const [language, setLanguage] = useState<"en" | "zh">("en")
   const [activeSection, setActiveSection] = useState("corePhilosophy")
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false)
   const [markdownContent, setMarkdownContent] = useState("")
+
+  useEffect(() => {
+    setLanguage(getInitialLanguage())
+  }, [])
 
   const toggleLanguage = () => {
     setLanguage(language === "en" ? "zh" : "en")
@@ -71,7 +82,12 @@ export default function GuidePage() {
           id: "adjustBalance",
           title: t.userGuide.adjustBalance.title,
           content: t.userGuide.adjustBalance.content
-        }
+        },
+        {
+          id: "deleteAccount",
+          title: t.userGuide.deleteAccount.title,
+          content: t.userGuide.deleteAccount.content
+        },
       ]
     },
     {
@@ -104,15 +120,10 @@ export default function GuidePage() {
           content: t.advanced.order.content
         },
         {
-          id: "archive",
-          title: t.advanced.archive.title,
-          content: t.advanced.archive.content
-        },
-        {
           id: "dashboard",
           title: t.advanced.dashboard.title,
           content: t.advanced.dashboard.content
-        }
+        },
       ]
     },
     {
@@ -169,6 +180,18 @@ export default function GuidePage() {
     addPortfolio: "add-portfolio",
     recurring: "recurring",
     adjustBalance: "adjust-balance",
+    deleteAccount: "delete-account",
+    dividend: "dividend",
+    bulkTransactions: "bulk-transactions",
+    groups: "groups",
+    exclude: "exclude",
+    order: "order",
+    dashboard: "dashboard",
+    privacy: "privacy",
+    cost: "cost",
+    pricing: "pricing",
+    dataDelay: "data-delay",
+    aboutDeveloper: "about-developer",
   }
 
   // Load markdown content when section changes
@@ -280,8 +303,9 @@ export default function GuidePage() {
               <ReactMarkdown
                 remarkPlugins={[remarkGfm]}
                 components={{
-                  h4: ({node, ...props}) => <h4 className="text-xl font-semibold mt-8 mb-4 text-gray-900" {...props} />,
+                  h2: ({node, ...props}) => <h2 className="text-3xl font-bold mt-12 mb-6 text-gray-900" {...props} />,
                   h3: ({node, ...props}) => <h3 className="text-2xl font-bold mt-10 mb-6 text-gray-900" {...props} />,
+                  h4: ({node, ...props}) => <h4 className="text-xl font-semibold mt-8 mb-4 text-gray-900" {...props} />,
                   p: ({node, ...props}) => <p className="mb-4 leading-relaxed" {...props} />,
                   ul: ({node, ...props}) => <ul className="mb-4 ml-6 space-y-2 list-disc" {...props} />,
                   ol: ({node, ...props}) => <ol className="mb-4 ml-6 space-y-2 list-decimal" {...props} />,
