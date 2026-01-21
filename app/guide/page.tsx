@@ -22,9 +22,21 @@ export default function GuidePage() {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false)
   const [markdownContent, setMarkdownContent] = useState("")
 
+  // Initialize language and section from URL hash
   useEffect(() => {
     setLanguage(getInitialLanguage())
+
+    // Read section from URL hash
+    const hash = window.location.hash.slice(1) // Remove '#'
+    if (hash) {
+      setActiveSection(hash)
+    }
   }, [])
+
+  // Update URL hash when section changes
+  useEffect(() => {
+    window.location.hash = activeSection
+  }, [activeSection])
 
   const toggleLanguage = () => {
     setLanguage(language === "en" ? "zh" : "en")
@@ -204,7 +216,7 @@ export default function GuidePage() {
       }
 
       try {
-        const response = await fetch(`/inside/content/${language}/${fileName}.md`)
+        const response = await fetch(`/guide/content/${language}/${fileName}.md`)
         if (response.ok) {
           const text = await response.text()
           setMarkdownContent(text)

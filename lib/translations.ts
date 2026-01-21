@@ -6,7 +6,7 @@ export const translations = {
       privacy: "Privacy",
       download: "Download",
       contact: "Contact",
-      inside: "Inside Synx",
+      inside: "User Guide",
     },
     hero: {
       title: "Your Net Worth, in Perfect Sync.",
@@ -247,7 +247,7 @@ export const translations = {
       features: "功能",
       faq: "常見問題",
       contact: "聯絡",
-      inside: "深入 Synx",
+      inside: "使用指南",
     },
     hero: {
       title: "你的資產，時時同步",
