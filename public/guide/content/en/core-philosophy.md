@@ -1,17 +1,16 @@
-Synx is an all-in-one asset management and net worth tracker. Our core value is simple: to help you say goodbye to complex spreadsheets and regain control of your financial life.
+Synx is a comprehensive asset management and net worth tracking tool designed to help you bid farewell to complex spreadsheets and reclaim control over your scattered financial life.
 
-### ．The Challenge
+## The Problem of Fragmentation
 
-**The Fragmentation of Assets**
-In the digital age, your wealth is likely scattered across various platforms, savings in bank apps, stocks in brokerage accounts, crypto in wallets, and liabilities on credit card statements. Gaining a complete financial overview often requires logging into multiple platforms and manually aggregating data, which is time-consuming and prone to error.
+In the digital age, your wealth is often fragmented across multiple platforms: savings in bank accounts, stocks in brokerage apps, crypto in cold wallets, and liabilities on credit card statements.
 
-**The "Net Worth" Blind Spot**
-While most people know their monthly income, few can instantly answer, "What is my current net worth?" Without a consolidated view of Assets minus Liabilities, making informed long-term financial decisions becomes difficult.
+Answering the simple question, **"What is my current net worth?"** is surprisingly difficult. It typically involves logging into multiple platforms and manually calculating the total—a process that is time-consuming and rarely up-to-date. Without seeing the true figure of "Total Assets minus Total Liabilities," making precise long-term financial decisions becomes a guessing game.
 
-### ．The Solution
+## The Meaning of "Synx"
 
-**A Unified Financial Interface**
-Whether you hold cash, liabilities, stocks, cryptocurrencies, precious metals, or multi-currency assets, Synx integrates everything into a single interface. We give you a clear, comprehensive view of your asset allocation and financial picture, eliminating the need for manual tracking.
+The name **Synx** embodies our mission to keep your financial reality in perfect synchronization. It operates on two levels:
 
-**Quantifiable Growth**
-Wealth building is a long-term journey. Synx goes beyond static numbers by visualizing your financial trends. Through dynamic charts, we turn raw data into actionable insights, helping you track your progress toward financial independence.
+1.  **Market Sync:** We synchronize real-time stock prices, exchange rates, and crypto values from global markets.
+2.  **Cash Flow Sync:** We automate the tracking of your recurring income, expenses, and investments.
+
+By combining these elements into a single interface, Synx ensures that your **Dashboard** is always **"In Sync"** with your **Real Life**. Whether you hold cash, debts, stocks, or precious metals, Synx transforms raw data into a clear visual journey, helping you track every step toward financial freedom.

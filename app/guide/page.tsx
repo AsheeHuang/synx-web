@@ -18,7 +18,7 @@ function getInitialLanguage(): "en" | "zh" {
 
 export default function GuidePage() {
   const [language, setLanguage] = useState<"en" | "zh">("en")
-  const [activeSection, setActiveSection] = useState("corePhilosophy")
+  const [activeSection, setActiveSection] = useState("interface")
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false)
   const [markdownContent, setMarkdownContent] = useState("")
 
