@@ -17,6 +17,7 @@ function getInitialLanguage(): "en" | "zh" {
 }
 
 export default function GuidePage() {
+  const [mounted, setMounted] = useState(false)
   const [language, setLanguage] = useState<"en" | "zh">("en")
   const [activeSection, setActiveSection] = useState("interface")
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false)
@@ -25,6 +26,7 @@ export default function GuidePage() {
   // Initialize language and section from URL hash
   useEffect(() => {
     setLanguage(getInitialLanguage())
+    setMounted(true)
 
     // Read section from URL hash
     const hash = window.location.hash.slice(1) // Remove '#'
@@ -232,6 +234,10 @@ export default function GuidePage() {
     loadMarkdown()
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [activeSection, language])
+
+  if (!mounted) {
+    return null
+  }
 
   return (
     <div className="min-h-screen bg-white">
