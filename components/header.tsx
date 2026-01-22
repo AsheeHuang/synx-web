@@ -44,7 +44,7 @@ export function Header({ language, setLanguage }: HeaderProps) {
           <div className="flex items-center gap-2">
             <Image
               src="/icon_fill.png"
-              alt="Synx"
+              alt="Synx icon"
               width={40}
               height={40}
               className="w-8 h-8 sm:w-10 sm:h-10 rounded"

@@ -39,7 +39,7 @@ export function HeroSection({ language }: HeroSectionProps) {
               <div className="absolute bottom-0 left-12 w-40 h-[320px] animate-float-up-delay-1">
                 <Image
                   src="/screenshots/shot2.png"
-                  alt="Synx App Screenshot 2"
+                  alt="Synx App 投資組合頁面，顯示多個投資帳戶的比例與投資績效總覽"
                   width={384}
                   height={768}
                   className="w-full h-full object-contain"
@@ -49,7 +49,7 @@ export function HeroSection({ language }: HeroSectionProps) {
               <div className="absolute top-0 right-12 w-44 h-[352px] animate-float-up">
                 <Image
                   src="/screenshots/shot1.png"
-                  alt="Synx App Screenshot 1"
+                  alt="Synx App 總覽頁面，顯示淨資產走勢圖與各帳戶資產分佈"
                   width={384}
                   height={768}
                   className="w-full h-full object-contain"
@@ -62,7 +62,7 @@ export function HeroSection({ language }: HeroSectionProps) {
               <div className="w-64 h-[512px] animate-float-up">
                 <Image
                   src="/screenshots/shot1.png"
-                  alt="Synx App Screenshot 1"
+                  alt="Synx App 總覽頁面，顯示淨資產走勢圖與各帳戶資產分佈"
                   width={384}
                   height={768}
                   className="w-full h-full object-contain"
@@ -71,7 +71,7 @@ export function HeroSection({ language }: HeroSectionProps) {
               <div className="w-64 h-[512px] animate-float-up-delay-1">
                 <Image
                   src="/screenshots/shot2.png"
-                  alt="Synx App Screenshot 2"
+                  alt="Synx App 投資組合頁面，顯示多個投資帳戶的比例與投資績效總覽"
                   width={384}
                   height={768}
                   className="w-full h-full object-contain"

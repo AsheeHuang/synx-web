@@ -17,7 +17,7 @@ export function Footer({ language }: FooterProps) {
           <div className="flex items-center justify-center gap-2 mb-6">
             <Image
               src="/icon_fill.png"
-              alt="Synx"
+              alt="Synx Icon"
               width={32}
               height={32}
               className="w-8 h-8 rounded"

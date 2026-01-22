@@ -43,6 +43,7 @@ export function FeaturesSection({ language }: FeaturesSectionProps) {
       imagePosition: "left" as const,
       background: "bg-gradient-to-br from-orange-50/50 to-amber-50/50 dark:from-orange-950/30 dark:to-amber-950/30",
       screenshot: "/screenshots/shot7.png",
+      alt: "Synx 淨資產折線圖與財務趨勢視覺化介面",
     },
     {
       title: t.features.portfolio.title,
@@ -50,6 +51,7 @@ export function FeaturesSection({ language }: FeaturesSectionProps) {
       imagePosition: "right" as const,
       background: "bg-gradient-to-bl from-blue-50/50 to-cyan-50/50 dark:from-blue-950/30 dark:to-cyan-950/30",
       screenshot: "/screenshots/shot5.png",
+      alt: "Synx 即時股票市場價格同步功能，支援台股美股與加密貨幣",
     },
     {
       title: t.features.transactions.title,
@@ -57,6 +59,7 @@ export function FeaturesSection({ language }: FeaturesSectionProps) {
       imagePosition: "left" as const,
       background: "bg-gradient-to-br from-orange-50/50 to-amber-50/50 dark:from-orange-950/30 dark:to-amber-950/30",
       screenshot: "/screenshots/shot6.png",
+      alt: "Synx 自訂投資組合與資產分布圖表",
     },
     {
       title: t.features.multiCurrency.title,
@@ -64,6 +67,7 @@ export function FeaturesSection({ language }: FeaturesSectionProps) {
       imagePosition: "right" as const,
       background: "bg-gradient-to-bl from-emerald-50/50 to-teal-50/50 dark:from-emerald-950/30 dark:to-teal-950/30",
       screenshot: "/screenshots/shot3.png",
+      alt: "Synx 自動交易管理與定期定額投資",
     },
     {
       title: t.features.investmentDashboard.title,
@@ -71,6 +75,7 @@ export function FeaturesSection({ language }: FeaturesSectionProps) {
       imagePosition: "left" as const,
       background: "bg-gradient-to-br from-purple-50/50 to-pink-50/50 dark:from-purple-950/30 dark:to-pink-950/30",
       screenshot: "/screenshots/shot8.png",
+      alt: "Synx 投資儀表板顯示個股損益與成本分析",
     },
   ]
 
@@ -103,7 +108,7 @@ export function FeaturesSection({ language }: FeaturesSectionProps) {
                     >
                       <Image
                         src={feature.screenshot}
-                        alt={feature.title}
+                        alt={feature.alt}
                         width={384}
                         height={768}
                         className="w-full h-full object-contain"
@@ -134,7 +139,7 @@ export function FeaturesSection({ language }: FeaturesSectionProps) {
                     >
                       <Image
                         src={feature.screenshot}
-                        alt={feature.title}
+                        alt={feature.alt}
                         width={384}
                         height={768}
                         className="w-full h-full object-contain"
@@ -158,7 +163,7 @@ export function FeaturesSection({ language }: FeaturesSectionProps) {
                 <div className="w-16 h-16 sm:w-20 sm:h-20 flex items-center justify-center mb-4 sm:mb-6">
                   <Image
                     src="/icons/1.svg"
-                    alt={t.features.banner.multiCurrency.title}
+                    alt="多幣別支援圖示"
                     width={80}
                     height={80}
                     className="w-full h-full"
@@ -174,7 +179,7 @@ export function FeaturesSection({ language }: FeaturesSectionProps) {
                 <div className="w-16 h-16 sm:w-20 sm:h-20 flex items-center justify-center mb-4 sm:mb-6">
                   <Image
                     src="/icons/2.svg"
-                    alt={t.features.banner.offline.title}
+                    alt="離線優先圖示"
                     width={80}
                     height={80}
                     className="w-full h-full"
@@ -190,7 +195,7 @@ export function FeaturesSection({ language }: FeaturesSectionProps) {
                 <div className="w-16 h-16 sm:w-20 sm:h-20 flex items-center justify-center mb-4 sm:mb-6">
                   <Image
                     src="/icons/3.svg"
-                    alt={t.features.banner.icloudBackup.title}
+                    alt="iCloud 自動備份圖示"
                     width={80}
                     height={80}
                     className="w-full h-full"
@@ -206,7 +211,7 @@ export function FeaturesSection({ language }: FeaturesSectionProps) {
                 <div className="w-16 h-16 sm:w-20 sm:h-20 flex items-center justify-center mb-4 sm:mb-6">
                   <Image
                     src="/icons/4.svg"
-                    alt={t.features.banner.privacy.title}
+                    alt="隱私至上圖示"
                     width={80}
                     height={80}
                     className="w-full h-full"
@@ -222,7 +227,7 @@ export function FeaturesSection({ language }: FeaturesSectionProps) {
                 <div className="w-16 h-16 sm:w-20 sm:h-20 flex items-center justify-center mb-4 sm:mb-6">
                   <Image
                     src="/icons/5.svg"
-                    alt={t.features.banner.batchTransactions.title}
+                    alt="批次新增交易圖示"
                     width={80}
                     height={80}
                     className="w-full h-full"
