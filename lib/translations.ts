@@ -251,7 +251,7 @@ export const translations = {
     },
     hero: {
       title: "你的資產，時時同步",
-      subtitle: "從即時市場到自動化金流，Synx 讓你清楚又安全地掌握全局財務狀況。",
+      subtitle: "一站式管理現金流與淨資產，台美股價自動同步，讓你清楚又安全掌握全局財務狀況。",
       appStore: {
         line1: "Download on the",
         line2: "App Store",

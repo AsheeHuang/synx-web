@@ -6,13 +6,13 @@ import "./globals.css"
 const inter = Inter({ subsets: ["latin"] })
 
 export const metadata: Metadata = {
-  title: "Synx - Your Net Worth, in Perfect Sync.",
+  title: "Synx - 淨資產管理與投資追蹤 App",
   description:
-    "From live market prices to automated cash flow, Synx gives you a clear, private, and real-time view of your entire financial life.",
+    "一站式管理現金流與淨資產，台美股價自動同步，讓你清楚又安全掌握全局財務狀況。",
   openGraph: {
-    title: "Synx - Your Net Worth, in Perfect Sync.",
+    title: "Synx - 淨資產管理與投資追蹤 App",
     description:
-      "From live market prices to automated cash flow, Synx gives you a clear, private, and real-time view of your entire financial life.",
+      "一站式管理現金流與淨資產，台美股價自動同步，讓你清楚又安全掌握全局財務狀況。",
     type: "website",
   },
 }
@@ -23,7 +23,7 @@ export default function RootLayout({
   children: React.ReactNode
 }) {
   return (
-    <html lang="en">
+    <html lang="zh">
       <body className={inter.className}>{children}</body>
     </html>
   )
