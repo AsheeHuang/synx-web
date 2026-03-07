@@ -1,0 +1,30 @@
+# Synx
+
+> Synx 是隱私優先的淨資產管理與投資追蹤 App（iOS / Android）。整合多類資產管理：股票、ETF、加密貨幣、現金等，即時同步全球市場行情，零上傳，隱私優先。
+
+## About
+
+Synx helps users track their complete financial picture — assets, investments, liabilities, and cash flow — in one place. Real-time global market price sync for stocks, ETFs, cryptocurrencies, and precious metals across multiple exchanges.
+
+Key features:
+- Privacy-first: no server upload, no bank credentials required
+- Semi-automatic: fixed transactions auto-execute; DCA investments prefilled from live prices for one-tap confirmation
+- Multi-market: global market coverage, multi-currency support
+- iCloud backup, offline-first, Face ID protection
+- Free tier available; Synx Pro subscription for advanced features
+
+## App Download
+
+- iOS App Store: https://apps.apple.com/app/id6753709890
+- Google Play: https://play.google.com/store/apps/details?id=com.synxapp.synx
+
+## Pages
+
+- Homepage: https://synxapp.com/
+- User Guide: https://synxapp.com/guide/
+
+## Contact
+
+- Email: support@synxapp.com
+- Instagram: https://www.instagram.com/synxapp/
+- Threads: https://www.threads.net/@synxapp

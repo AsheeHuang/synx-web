@@ -1,0 +1,33 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://synxapp.com/sitemap.xml
+
+# Allow AI search engines (ChatGPT Browse, Perplexity, Apple)
+User-agent: GPTBot
+Allow: /
+
+User-agent: PerplexityBot
+Allow: /
+
+User-agent: Applebot-Extended
+Allow: /
+
+# Block AI training-only scrapers
+User-agent: CCBot
+Disallow: /
+
+User-agent: Bytespider
+Disallow: /
+
+User-agent: anthropic-ai
+Disallow: /
+
+User-agent: Google-Extended
+Disallow: /
+
+User-agent: Omgilibot
+Disallow: /
+
+User-agent: Diffbot
+Disallow: /

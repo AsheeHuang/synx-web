@@ -7,7 +7,8 @@ export function JsonLd() {
         "name": "Synx",
         "applicationCategory": "FinanceApplication",
         "operatingSystem": ["iOS", "Android"],
-        "description": "一站式管理現金流與淨資產，台美股價自動同步，讓你清楚又安全掌握全局財務狀況。淨資產管理、投資組合追蹤、定期定額投資記錄。",
+        "description": "Synx 是隱私優先的淨資產管理與投資追蹤 App，支援股票、ETF、加密貨幣等多類資產管理，即時同步全球市場行情，零上傳隱私保護。Privacy-first net worth tracker and investment portfolio manager with real-time global market sync.",
+        "keywords": "淨資產管理,投資追蹤,資產管理,淨資產,投資組合,定期定額,net worth tracker,investment tracker,portfolio tracker,wealth management",
         "offers": {
           "@type": "Offer",
           "price": "0",
@@ -28,24 +29,33 @@ export function JsonLd() {
         ],
         "screenshot": "https://synxapp.com/screenshots/shot1.png",
         "featureList": [
-          "淨資產視覺化追蹤",
-          "即時股票市場價格同步",
-          "自訂投資組合分析",
-          "自動交易管理",
-          "定期定額投資記錄",
+          "Net Worth Visualization",
+          "Real-Time Global Market Sync",
+          "Custom Portfolio Analysis",
+          "Automated Transaction Management",
+          "DCA / Recurring Investment Tracking",
+          "Multi-Currency Support",
+          "Offline First",
+          "iCloud Auto Backup",
+          "Privacy First – Data Never Uploaded",
+          "淨資產視覺化追蹤與管理",
+          "即時全球股票市場行情同步",
+          "投資追蹤與組合分析",
+          "多類資產管理（股票、ETF、加密貨幣）",
+          "定期定額投資追蹤記錄",
           "多幣別支援",
           "離線優先",
           "iCloud 自動備份",
           "隱私至上 - 資料不上傳伺服器"
         ],
-        "releaseNotes": "淨資產管理與投資追蹤應用程式"
+        "releaseNotes": "Net Worth Tracking & Investment Management App"
       },
       {
         "@type": "Organization",
         "name": "Synx",
         "url": "https://synxapp.com",
         "logo": "https://synxapp.com/icon_fill.png",
-        "description": "提供隱私至上的淨資產管理與投資追蹤解決方案",
+        "description": "Privacy-first net worth tracking and investment management. 提供隱私至上的淨資產管理與投資追蹤解決方案",
         "email": "support@synxapp.com",
         "sameAs": [
           "https://www.instagram.com/synxapp/",
@@ -54,17 +64,12 @@ export function JsonLd() {
       },
       {
         "@type": "WebSite",
-        "name": "Synx - 你的資產,時時同步",
+        "name": "Synx",
         "url": "https://synxapp.com",
-        "description": "一站式管理現金流與淨資產，台美股價自動同步，讓你清楚又安全掌握全局財務狀況。淨資產管理、投資組合追蹤、定期定額投資記錄。",
+        "description": "Privacy-first net worth tracking and investment management app. 一站式管理現金流與淨資產，台美股價自動同步。",
         "publisher": {
           "@type": "Organization",
           "name": "Synx"
-        },
-        "potentialAction": {
-          "@type": "SearchAction",
-          "target": "https://synxapp.com/?s={search_term_string}",
-          "query-input": "required name=search_term_string"
         }
       },
       {
