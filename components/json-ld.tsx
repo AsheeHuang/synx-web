@@ -59,7 +59,9 @@ export function JsonLd() {
         "email": "support@synxapp.com",
         "sameAs": [
           "https://www.instagram.com/synxapp/",
-          "https://www.threads.net/@synxapp"
+          "https://www.threads.net/@synxapp",
+          "https://www.facebook.com/profile.php?id=61584705035446",
+          "https://x.com/synxapp_"
         ]
       },
       {

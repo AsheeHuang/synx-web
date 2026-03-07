@@ -15,10 +15,15 @@ export function AppBanner() {
     }
   }, [])
 
+  useEffect(() => {
+    document.documentElement.style.setProperty("--banner-h", show ? "52px" : "0px")
+    return () => document.documentElement.style.setProperty("--banner-h", "0px")
+  }, [show])
+
   if (!show) return null
 
   return (
-    <div className="flex items-center gap-3 bg-white border-b border-gray-200 px-3 py-2 sticky top-0 z-50 shadow-sm">
+    <div className="flex items-center gap-3 bg-white border-b border-gray-200 px-3 py-2 fixed top-0 left-0 right-0 z-[60] shadow-sm" style={{ height: "52px" }}>
       <button
         onClick={() => {
           setShow(false)
