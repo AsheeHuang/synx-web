@@ -2,6 +2,7 @@ import type React from "react"
 import type { Metadata } from "next"
 import { Inter } from "next/font/google"
 import { JsonLd } from "@/components/json-ld"
+import { AppBanner } from "@/components/app-banner"
 import "./globals.css"
 
 const inter = Inter({ subsets: ["latin"] })
@@ -75,8 +76,12 @@ export default function RootLayout({
     <html lang="en">
       <head>
         <JsonLd />
+        <meta name="apple-itunes-app" content="app-id=6753709890" />
       </head>
-      <body className={inter.className}>{children}</body>
+      <body className={inter.className}>
+        <AppBanner />
+        {children}
+      </body>
     </html>
   )
 }
