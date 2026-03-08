@@ -2,8 +2,7 @@
 
 import { useState, useEffect } from "react"
 import Link from "next/link"
-import { Header } from "@/components/header"
-import { Footer } from "@/components/footer"
+import Image from "next/image"
 import { Button } from "@/components/ui/button"
 import { Calendar, Clock, ArrowLeft, Tag } from "lucide-react"
 import ReactMarkdown from "react-markdown"
@@ -124,10 +123,33 @@ export default function BlogPostClient({ slug }: { slug: string }) {
 
   const content = t[language]
 
+  const toggleLanguage = () => {
+    setLanguage(language === "en" ? "zh" : "en")
+  }
+
   if (loading) {
     return (
       <div className="min-h-screen bg-background">
-        <Header language={language} setLanguage={setLanguage} />
+        {/* Simple Header - Same as Guide page */}
+        <header className="fixed top-0 left-0 right-0 z-50 bg-background/80 backdrop-blur-md border-b border-border">
+          <div className="container mx-auto px-4 sm:px-6 lg:px-8">
+            <div className="flex items-center justify-between h-16 sm:h-20">
+              <Link href="/" className="flex items-center gap-2">
+                <Image src="/icon_fill.png" alt="Synx" width={40} height={40} className="w-8 h-8 sm:w-10 sm:h-10 rounded" />
+                <span className="text-xl sm:text-2xl font-bold text-foreground">Synx</span>
+              </Link>
+
+              <Button
+                variant="outline"
+                size="sm"
+                onClick={toggleLanguage}
+                className="text-xs sm:text-sm min-w-[60px] bg-transparent"
+              >
+                {"EN / 中文"}
+              </Button>
+            </div>
+          </div>
+        </header>
         <main className="container mx-auto px-4 sm:px-6 lg:px-8 pt-32 pb-20">
           <div className="max-w-3xl mx-auto">
             <div className="animate-pulse">
@@ -141,7 +163,6 @@ export default function BlogPostClient({ slug }: { slug: string }) {
             </div>
           </div>
         </main>
-        <Footer language={language} />
       </div>
     )
   }
@@ -149,7 +170,26 @@ export default function BlogPostClient({ slug }: { slug: string }) {
   if (!post) {
     return (
       <div className="min-h-screen bg-background">
-        <Header language={language} setLanguage={setLanguage} />
+        {/* Simple Header - Same as Guide page */}
+        <header className="fixed top-0 left-0 right-0 z-50 bg-background/80 backdrop-blur-md border-b border-border">
+          <div className="container mx-auto px-4 sm:px-6 lg:px-8">
+            <div className="flex items-center justify-between h-16 sm:h-20">
+              <Link href="/" className="flex items-center gap-2">
+                <Image src="/icon_fill.png" alt="Synx" width={40} height={40} className="w-8 h-8 sm:w-10 sm:h-10 rounded" />
+                <span className="text-xl sm:text-2xl font-bold text-foreground">Synx</span>
+              </Link>
+
+              <Button
+                variant="outline"
+                size="sm"
+                onClick={toggleLanguage}
+                className="text-xs sm:text-sm min-w-[60px] bg-transparent"
+              >
+                {"EN / 中文"}
+              </Button>
+            </div>
+          </div>
+        </header>
         <main className="container mx-auto px-4 sm:px-6 lg:px-8 pt-32 pb-20">
           <div className="max-w-3xl mx-auto text-center">
             <h1 className="text-4xl font-bold text-foreground mb-4">{content.notFound}</h1>
@@ -162,14 +202,32 @@ export default function BlogPostClient({ slug }: { slug: string }) {
             </Link>
           </div>
         </main>
-        <Footer language={language} />
       </div>
     )
   }
 
   return (
     <div className="min-h-screen bg-background">
-      <Header language={language} setLanguage={setLanguage} />
+      {/* Simple Header - Same as Guide page */}
+      <header className="fixed top-0 left-0 right-0 z-50 bg-background/80 backdrop-blur-md border-b border-border">
+        <div className="container mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="flex items-center justify-between h-16 sm:h-20">
+            <Link href="/" className="flex items-center gap-2">
+              <Image src="/icon_fill.png" alt="Synx" width={40} height={40} className="w-8 h-8 sm:w-10 sm:h-10 rounded" />
+              <span className="text-xl sm:text-2xl font-bold text-foreground">Synx</span>
+            </Link>
+
+            <Button
+              variant="outline"
+              size="sm"
+              onClick={toggleLanguage}
+              className="text-xs sm:text-sm min-w-[60px] bg-transparent"
+            >
+              {"EN / 中文"}
+            </Button>
+          </div>
+        </div>
+      </header>
 
       <main className="container mx-auto px-4 sm:px-6 lg:px-8 pt-32 pb-20">
         <article className="max-w-3xl mx-auto">
@@ -294,8 +352,6 @@ export default function BlogPostClient({ slug }: { slug: string }) {
           )}
         </article>
       </main>
-
-      <Footer language={language} />
     </div>
   )
 }
