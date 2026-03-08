@@ -78,6 +78,12 @@ export function Header({ language, setLanguage }: HeaderProps) {
           {/* Right side navigation */}
           <div className="flex items-center gap-3 sm:gap-4 lg:gap-6">
             <Link
+              href="/blog"
+              className="text-sm lg:text-base text-muted-foreground hover:text-foreground transition-colors"
+            >
+              {t.nav.blog}
+            </Link>
+            <Link
               href="/guide"
               className="text-sm lg:text-base text-muted-foreground hover:text-foreground transition-colors"
             >

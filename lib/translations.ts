@@ -7,6 +7,7 @@ export const translations = {
       download: "Download",
       contact: "Contact",
       inside: "User Guide",
+      blog: "Blog",
     },
     hero: {
       title: "Your Net Worth, in Perfect Sync.",
@@ -248,6 +249,7 @@ export const translations = {
       faq: "常見問題",
       contact: "聯絡",
       inside: "使用指南",
+      blog: "部落格",
     },
     hero: {
       title: "你的資產，時時同步",
