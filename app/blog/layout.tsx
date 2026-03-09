@@ -3,9 +3,9 @@ import type { Metadata } from "next"
 
 export const metadata: Metadata = {
   metadataBase: new URL("https://synxapp.com"),
-  title: "Synx Blog – 財富管理洞察與投資心得 | Wealth Management Insights",
+  title: "Synx 部落格 – 關於資產管理、開發、投資追蹤 | Blog on Asset Management, Development, and Investment Tracking",
   description:
-    "探索淨資產管理、投資追蹤與財務規劃的最佳實踐。Discover insights on net worth tracking, investment management, and financial planning best practices.",
+    "分享資產追蹤、投資記錄與財務管理的心得與經驗。Thoughts on net worth tracking, investment management, and financial planning.",
   keywords: [
     "財富管理",
     "投資心得",
@@ -19,9 +19,9 @@ export const metadata: Metadata = {
     "portfolio management",
   ],
   openGraph: {
-    title: "Synx Blog – 財富管理洞察與投資心得",
+    title: "Synx 部落格 – 關於資產管理、開發、投資追蹤",
     description:
-      "探索淨資產管理、投資追蹤與財務規劃的最佳實踐。Discover insights on wealth management and investment tracking.",
+      "分享資產追蹤、投資記錄與財務管理的心得與經驗。",
     url: "https://synxapp.com/blog",
     siteName: "Synx",
     type: "website",
@@ -29,8 +29,8 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "Synx Blog – 財富管理洞察與投資心得",
-    description: "探索淨資產管理、投資追蹤與財務規劃的最佳實踐。",
+    title: "Synx 部落格 – 關於資產管理、開發、投資追蹤",
+    description: "分享資產追蹤、投資記錄與財務管理的心得與經驗。",
     images: ["/og-image.png"],
   },
   alternates: {

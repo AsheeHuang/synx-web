@@ -57,7 +57,7 @@ export default function BlogPage() {
   const t = {
     en: {
       title: "Blog",
-      subtitle: "Insights on wealth management and investment tracking",
+      subtitle: "Sharing thoughts on asset management, development, and investment tracking",
       allPosts: "All Posts",
       readMore: "Read More",
       readingTime: "min read",
@@ -65,7 +65,7 @@ export default function BlogPage() {
     },
     zh: {
       title: "部落格",
-      subtitle: "財富管理與投資追蹤的洞察",
+      subtitle: "分享關於資產管理、開發、投資追蹤的一些想法",
       allPosts: "所有文章",
       readMore: "閱讀更多",
       readingTime: "分鐘閱讀",
