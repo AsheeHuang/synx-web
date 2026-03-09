@@ -6,24 +6,23 @@ import { HeroSection } from "@/components/hero-section"
 import { FeaturesSection } from "@/components/features-section"
 import { FaqSection } from "@/components/faq-section"
 import { Footer } from "@/components/footer"
-
-function getInitialLanguage(): "en" | "zh" {
-  if (typeof window === "undefined") return "en"
-
-  const browserLang = navigator.language || navigator.languages?.[0] || "en"
-  return browserLang.toLowerCase().startsWith("zh") ? "zh" : "en"
-}
+import { getInitialLanguage, setStoredLanguage, type Language } from "@/lib/language"
 
 export default function Home() {
-  const [language, setLanguage] = useState<"en" | "zh">("en")
+  const [language, setLanguage] = useState<Language>("en")
 
   useEffect(() => {
     setLanguage(getInitialLanguage())
   }, [])
 
+  const handleLanguageChange = (lang: Language) => {
+    setLanguage(lang)
+    setStoredLanguage(lang)
+  }
+
   return (
     <div className="min-h-screen bg-background">
-      <Header language={language} setLanguage={setLanguage} />
+      <Header language={language} setLanguage={handleLanguageChange} />
       <main>
         <HeroSection language={language} />
         <FeaturesSection language={language} />

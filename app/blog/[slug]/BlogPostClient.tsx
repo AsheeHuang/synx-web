@@ -7,6 +7,7 @@ import { Button } from "@/components/ui/button"
 import { Calendar, Clock, ArrowLeft, Tag } from "lucide-react"
 import ReactMarkdown from "react-markdown"
 import remarkGfm from "remark-gfm"
+import { getInitialLanguage, setStoredLanguage, type Language } from "@/lib/language"
 
 interface BlogPost {
   slug: string
@@ -19,15 +20,8 @@ interface BlogPost {
   readingTime?: number
 }
 
-function getInitialLanguage(): "en" | "zh" {
-  if (typeof window === "undefined") return "en"
-
-  const browserLang = navigator.language || navigator.languages?.[0] || "en"
-  return browserLang.toLowerCase().startsWith("zh") ? "zh" : "en"
-}
-
 export default function BlogPostClient({ slug }: { slug: string }) {
-  const [language, setLanguage] = useState<"en" | "zh">("en")
+  const [language, setLanguage] = useState<Language>("en")
   const [post, setPost] = useState<BlogPost | null>(null)
   const [loading, setLoading] = useState(true)
   const [mounted, setMounted] = useState(false)
@@ -124,7 +118,9 @@ export default function BlogPostClient({ slug }: { slug: string }) {
   const content = t[language]
 
   const toggleLanguage = () => {
-    setLanguage(language === "en" ? "zh" : "en")
+    const newLanguage = language === "en" ? "zh" : "en"
+    setLanguage(newLanguage)
+    setStoredLanguage(newLanguage)
   }
 
   if (loading) {

@@ -8,17 +8,11 @@ import { Menu, X } from "lucide-react"
 import { translations } from "@/lib/translations"
 import ReactMarkdown from 'react-markdown'
 import remarkGfm from 'remark-gfm'
-
-function getInitialLanguage(): "en" | "zh" {
-  if (typeof window === "undefined") return "en"
-
-  const browserLang = navigator.language || navigator.languages?.[0] || "en"
-  return browserLang.toLowerCase().startsWith("zh") ? "zh" : "en"
-}
+import { getInitialLanguage, setStoredLanguage, type Language } from "@/lib/language"
 
 export default function GuidePage() {
   const [mounted, setMounted] = useState(false)
-  const [language, setLanguage] = useState<"en" | "zh">("en")
+  const [language, setLanguage] = useState<Language>("en")
   const [activeSection, setActiveSection] = useState("interface")
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false)
   const [markdownContent, setMarkdownContent] = useState("")
@@ -41,7 +35,9 @@ export default function GuidePage() {
   }, [activeSection])
 
   const toggleLanguage = () => {
-    setLanguage(language === "en" ? "zh" : "en")
+    const newLanguage = language === "en" ? "zh" : "en"
+    setLanguage(newLanguage)
+    setStoredLanguage(newLanguage)
   }
 
   const t = translations[language].guide
@@ -210,6 +206,9 @@ export default function GuidePage() {
 
   // Load markdown content when section changes
   useEffect(() => {
+    // Don't load markdown until mounted and language is initialized
+    if (!mounted) return
+
     const loadMarkdown = async () => {
       const fileName = mdFileMap[activeSection]
       if (!fileName) {
@@ -233,7 +232,7 @@ export default function GuidePage() {
 
     loadMarkdown()
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [activeSection, language])
+  }, [activeSection, language, mounted])
 
   if (!mounted) {
     return null

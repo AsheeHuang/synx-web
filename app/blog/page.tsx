@@ -6,6 +6,7 @@ import Image from "next/image"
 import { Button } from "@/components/ui/button"
 import { Calendar, Clock, Tag } from "lucide-react"
 import { getAllPosts } from "@/lib/blog"
+import { getInitialLanguage, setStoredLanguage, type Language } from "@/lib/language"
 
 interface BlogPost {
   slug: string
@@ -17,15 +18,8 @@ interface BlogPost {
   readingTime?: number
 }
 
-function getInitialLanguage(): "en" | "zh" {
-  if (typeof window === "undefined") return "en"
-
-  const browserLang = navigator.language || navigator.languages?.[0] || "en"
-  return browserLang.toLowerCase().startsWith("zh") ? "zh" : "en"
-}
-
 export default function BlogPage() {
-  const [language, setLanguage] = useState<"en" | "zh">("en")
+  const [language, setLanguage] = useState<Language>("en")
   const [posts, setPosts] = useState<BlogPost[]>([])
   const [selectedTag, setSelectedTag] = useState<string | null>(null)
   const [mounted, setMounted] = useState(false)
@@ -82,7 +76,9 @@ export default function BlogPage() {
   const content = t[language]
 
   const toggleLanguage = () => {
-    setLanguage(language === "en" ? "zh" : "en")
+    const newLanguage = language === "en" ? "zh" : "en"
+    setLanguage(newLanguage)
+    setStoredLanguage(newLanguage)
   }
 
   return (
