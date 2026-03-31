@@ -3,11 +3,10 @@
   "version": "0.1.0",
   "private": true,
   "scripts": {
-    "build": "node scripts/generate-blog-data.mjs && next build",
+    "build": "next build",
     "dev": "next dev",
     "lint": "eslint .",
-    "start": "next start",
-    "prebuild": "node scripts/generate-blog-data.mjs"
+    "start": "next start"
   },
   "dependencies": {
     "@hookform/resolvers": "^3.10.0",
