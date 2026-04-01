@@ -10,8 +10,8 @@ export const translations = {
       blog: "Blog",
     },
     hero: {
-      title: "Your Net Worth, in Perfect Sync.",
-      subtitle: "From live market prices to automated cash flow, Synx gives you a clear, private, and real-time view of your entire financial life.",
+      title: "Private net worth tracker for investments, DCA, and your full portfolio.",
+      subtitle: "Track net worth, investment accounts, cost basis, recurring investments, and major cash flow in one place — without linking your bank or uploading your data.",
       appStore: {
         line1: "Download on the",
         line2: "App Store",
@@ -252,8 +252,8 @@ export const translations = {
       blog: "部落格",
     },
     hero: {
-      title: "你的資產，時時同步",
-      subtitle: "一站式管理現金流與淨資產，台美股價自動同步，讓你清楚又安全掌握全局財務狀況。",
+      title: "隱私優先的資產管理 App，幫你追蹤淨資產、投資組合與定期定額",
+      subtitle: "用 Synx 管理淨資產、投資帳戶、成本、重複投資與主要現金流，不用綁銀行，也不用把資料上傳到伺服器。",
       appStore: {
         line1: "Download on the",
         line2: "App Store",

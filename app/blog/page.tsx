@@ -11,12 +11,12 @@ import type { SanityPostSummary } from "@/lib/sanity/types"
 
 const labels = {
   en: {
-    title: "Blog",
-    subtitle: "Sharing thoughts on asset management, development, and investment tracking",
+    title: "Asset Management Blog",
+    subtitle: "Notes on net worth tracking, investment records, DCA, and building a simpler asset management workflow",
   },
   zh: {
-    title: "部落格",
-    subtitle: "分享關於資產管理、開發、投資追蹤的一些想法",
+    title: "資產管理部落格",
+    subtitle: "分享淨資產追蹤、投資記錄、定期定額與資產管理流程的實作心得",
   },
 }
 

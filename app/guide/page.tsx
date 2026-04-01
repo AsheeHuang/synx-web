@@ -312,9 +312,15 @@ export default function GuidePage() {
         {/* Content Area */}
         <main className="flex-1 md:ml-64 lg:ml-80">
           <article className="mx-auto max-w-3xl px-6 py-12">
-            <h1 className="text-4xl font-bold text-gray-900 mb-8">
-              {currentSubsection.title}
+            <h1 className="text-4xl font-bold text-gray-900 mb-3">
+              {language === "zh" ? "Synx 使用指南｜資產管理、投資追蹤與定期定額設定" : "Synx User Guide | Net Worth Tracking, Portfolio Management, and DCA Setup"}
             </h1>
+            <p className="text-lg text-gray-600 mb-8 leading-relaxed">
+              {language === "zh" ? "從新增帳戶、交易紀錄到定期定額設定，幫你更完整地用 Synx 做資產管理。" : "Learn how to use Synx for net worth tracking, investment records, recurring investments, and day-to-day asset management."}
+            </p>
+            <h2 className="text-2xl font-semibold text-gray-900 mb-8">
+              {currentSubsection.title}
+            </h2>
 
             <div className="prose prose-lg max-w-none text-gray-700 leading-relaxed">
               <ReactMarkdown
