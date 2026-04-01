@@ -44,8 +44,14 @@ export async function getPostBySlug(slug: string): Promise<SanityPost | null> {
       titleZh,
       descriptionEn,
       descriptionZh,
-      contentEn,
-      contentZh,
+      "contentEn": contentEn[]{
+        ...,
+        _type == "image" => { ..., "asset": asset->{ url } }
+      },
+      "contentZh": contentZh[]{
+        ...,
+        _type == "image" => { ..., "asset": asset->{ url } }
+      },
     }
   `, { slug })
 
