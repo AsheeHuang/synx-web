@@ -252,8 +252,8 @@ export const translations = {
       blog: "部落格",
     },
     hero: {
-      title: "更輕鬆的資產管理方式",
-      subtitle: "用 Synx 管理淨資產、投資帳戶、成本、重複投資與主要現金流，不用綁銀行，也不用把資料上傳到伺服器。",
+      title: "資產管理|淨資產追蹤|投資記帳",
+      subtitle: "用 Synx 管理淨資產、投資帳戶、成本、重複投資與主要現金流，不用綁銀行，不用登入，也不用把資料上傳到伺服器。",
       appStore: {
         line1: "Download on the",
         line2: "App Store",
