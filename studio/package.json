@@ -1,5 +1,19 @@
 {
   "name": "synx-blog-studio",
   "version": "1.0.0",
-  "private": true
+  "private": true,
+  "scripts": {
+    "dev": "sanity dev",
+    "build": "sanity build",
+    "start": "sanity start",
+    "deploy": "sanity deploy",
+    "manage": "sanity manage"
+  },
+  "dependencies": {
+    "@sanity/vision": "^5.18.0",
+    "react": "^19.2.4",
+    "react-dom": "^19.2.4",
+    "sanity": "^5.14.1",
+    "styled-components": "^6.1.13"
+  }
 }
