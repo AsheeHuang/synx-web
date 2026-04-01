@@ -92,6 +92,7 @@ export const postSchema = defineType({
           ],
           preview: { select: { title: 'language', subtitle: 'code' } },
         },
+        { type: 'table' },
       ],
     }),
     // --- Chinese ---
@@ -154,6 +155,7 @@ export const postSchema = defineType({
           ],
           preview: { select: { title: 'language', subtitle: 'code' } },
         },
+        { type: 'table' },
       ],
     }),
   ],

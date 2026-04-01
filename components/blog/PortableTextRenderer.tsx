@@ -74,6 +74,32 @@ const components: PortableTextComponents = {
         <code>{value.code}</code>
       </pre>
     ),
+	table: ({ value }) => (
+	  <div className="overflow-x-auto my-8">
+		<table className="min-w-full border-collapse text-sm">
+		  <tbody>
+			{value.rows?.map((row: any, ri: number) => (
+			  <tr
+				key={row._key ?? ri}
+				className={row.isHeader ? "bg-secondary font-semibold" : "border-t border-border"}
+			  >
+				{row.cells?.map((cell: any, ci: number) => {
+				  const Tag = row.isHeader ? "th" : "td"
+				  return (
+					<Tag
+					  key={cell._key ?? ci}
+					  className="px-4 py-2 text-left border border-border text-foreground"
+					>
+					  {cell.text}
+					</Tag>
+				  )
+				})}
+			  </tr>
+			))}
+		  </tbody>
+		</table>
+	  </div>
+	),
   },
 }
 
