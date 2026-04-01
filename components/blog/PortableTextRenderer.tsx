@@ -81,16 +81,16 @@ const components: PortableTextComponents = {
 			{value.rows?.map((row: any, ri: number) => (
 			  <tr
 				key={row._key ?? ri}
-				className={row.isHeader ? "bg-secondary font-semibold" : "border-t border-border"}
+				className={ri === 0 ? "bg-secondary font-semibold" : "border-t border-border"}
 			  >
-				{row.cells?.map((cell: any, ci: number) => {
-				  const Tag = row.isHeader ? "th" : "td"
+				{row.cells?.map((cell: string, ci: number) => {
+				  const Tag = ri === 0 ? "th" : "td"
 				  return (
 					<Tag
-					  key={cell._key ?? ci}
+					  key={ci}
 					  className="px-4 py-2 text-left border border-border text-foreground"
 					>
-					  {cell.text}
+					  {cell}
 					</Tag>
 				  )
 				})}
