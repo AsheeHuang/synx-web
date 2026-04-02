@@ -8,6 +8,7 @@ interface PostHeaderProps {
   tags: string[]
   readingTime?: number
   language: Language
+  hideTitle?: boolean
 }
 
 const labels = {
@@ -15,7 +16,7 @@ const labels = {
   zh: { readingTime: "分鐘閱讀", by: "作者" },
 }
 
-export function PostHeader({ title, date, author, tags, readingTime, language }: PostHeaderProps) {
+export function PostHeader({ title, date, author, tags, readingTime, language, hideTitle = false }: PostHeaderProps) {
   const locale = language === "zh" ? "zh-TW" : "en-US"
   const t = labels[language]
 
@@ -31,9 +32,11 @@ export function PostHeader({ title, date, author, tags, readingTime, language }:
         </div>
       )}
 
-      <h1 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-foreground mb-6 leading-tight">
-        {title}
-      </h1>
+      {!hideTitle && (
+        <h1 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-foreground mb-6 leading-tight">
+          {title}
+        </h1>
+      )}
 
       <div className="flex flex-wrap items-center gap-4 text-sm text-muted-foreground">
         <div className="flex items-center gap-1.5">

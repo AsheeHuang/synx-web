@@ -73,7 +73,7 @@ export default function RootLayout({
   children: React.ReactNode
 }) {
   return (
-    <html lang="en">
+    <html lang="zh-TW">
       <head>
         <JsonLd />
         <meta name="apple-itunes-app" content="app-id=6753709890" />

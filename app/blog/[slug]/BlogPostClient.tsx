@@ -14,6 +14,7 @@ import type { SanityPost } from "@/lib/sanity/types"
 interface BlogPostClientProps {
   post: SanityPost | null
   slug: string
+  suppressPrimaryHeading?: boolean
 }
 
 const labels = {
@@ -54,7 +55,7 @@ function BlogHeader({ language, onToggle }: { language: Language; onToggle: () =
   )
 }
 
-export default function BlogPostClient({ post, slug }: BlogPostClientProps) {
+export default function BlogPostClient({ post, slug, suppressPrimaryHeading = false }: BlogPostClientProps) {
   const [language, setLanguage] = useState<Language>("en")
   const [mounted, setMounted] = useState(false)
 
@@ -115,6 +116,7 @@ export default function BlogPostClient({ post, slug }: BlogPostClientProps) {
             tags={post.tags ?? []}
             readingTime={post.readingTime}
             language={language}
+            hideTitle={suppressPrimaryHeading}
           />
 
           <PortableTextRenderer content={content} />

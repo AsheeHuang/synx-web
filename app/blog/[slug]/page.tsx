@@ -1,6 +1,17 @@
 import { getAllSlugs, getPostBySlug } from "@/lib/sanity/queries"
 import BlogPostClient from "./BlogPostClient"
+import { BlogPostJsonLd } from "@/components/blog/BlogPostJsonLd"
 import type { Metadata } from "next"
+
+const BASE_URL = "https://synxapp.com"
+
+function getPreferredTitle(post: NonNullable<Awaited<ReturnType<typeof getPostBySlug>>>) {
+  return post.titleZh || post.titleEn
+}
+
+function getPreferredDescription(post: NonNullable<Awaited<ReturnType<typeof getPostBySlug>>>) {
+  return post.descriptionZh || post.descriptionEn || ""
+}
 
 export async function generateStaticParams() {
   try {
@@ -23,8 +34,9 @@ export async function generateMetadata({
   const post = await getPostBySlug(params.slug)
   if (!post) return { title: "Post Not Found | Synx Blog" }
 
-  const title = `${post.titleEn} | Synx Blog`
-  const description = post.descriptionEn || ""
+  const title = `${getPreferredTitle(post)} | Synx`
+  const description = getPreferredDescription(post)
+  const url = `${BASE_URL}/blog/${post.slug}`
 
   return {
     title,
@@ -36,8 +48,10 @@ export async function generateMetadata({
       publishedTime: post.date,
       authors: [post.author],
       tags: post.tags,
-      url: `https://synxapp.com/blog/${post.slug}`,
+      url,
       siteName: "Synx",
+      locale: "zh_TW",
+      alternateLocale: ["en_US"],
     },
     twitter: {
       card: "summary_large_image",
@@ -45,7 +59,12 @@ export async function generateMetadata({
       description,
     },
     alternates: {
-      canonical: `https://synxapp.com/blog/${post.slug}`,
+      canonical: url,
+      languages: {
+        "zh-TW": url,
+        en: url,
+        "x-default": url,
+      },
     },
   }
 }
@@ -56,5 +75,22 @@ export default async function BlogPostPage({
   params: { slug: string }
 }) {
   const post = await getPostBySlug(params.slug)
-  return <BlogPostClient post={post} slug={params.slug} />
+  const serverTitle = post ? getPreferredTitle(post) : null
+  const serverDescription = post ? getPreferredDescription(post) : null
+
+  return (
+    <>
+      {post ? <BlogPostJsonLd post={post} /> : null}
+
+      {post ? (
+        <article className="sr-only" aria-hidden="true">
+          <h1>{serverTitle}</h1>
+          {serverDescription ? <p>{serverDescription}</p> : null}
+          <time dateTime={post.date}>{post.date}</time>
+        </article>
+      ) : null}
+
+      <BlogPostClient post={post} slug={params.slug} suppressPrimaryHeading={Boolean(post)} />
+    </>
+  )
 }
