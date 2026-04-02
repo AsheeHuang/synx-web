@@ -75,22 +75,11 @@ export default async function BlogPostPage({
   params: { slug: string }
 }) {
   const post = await getPostBySlug(params.slug)
-  const serverTitle = post ? getPreferredTitle(post) : null
-  const serverDescription = post ? getPreferredDescription(post) : null
 
   return (
     <>
       {post ? <BlogPostJsonLd post={post} /> : null}
-
-      {post ? (
-        <article className="sr-only" aria-hidden="true">
-          <h1>{serverTitle}</h1>
-          {serverDescription ? <p>{serverDescription}</p> : null}
-          <time dateTime={post.date}>{post.date}</time>
-        </article>
-      ) : null}
-
-      <BlogPostClient post={post} slug={params.slug} suppressPrimaryHeading={Boolean(post)} />
+      <BlogPostClient post={post} slug={params.slug} />
     </>
   )
 }
