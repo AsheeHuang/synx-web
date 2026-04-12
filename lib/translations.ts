@@ -201,6 +201,10 @@ export const translations = {
           title: "Bulk Add Transactions",
           content: "Coming soon...",
         },
+        csvImport: {
+          title: "CSV Import",
+          content: "",
+        },
         groups: {
           title: "Group Settings",
           content: "Coming soon...",
@@ -441,6 +445,10 @@ export const translations = {
         },
         bulkTransactions: {
           title: "批量新增投資交易",
+          content: "",
+        },
+        csvImport: {
+          title: "CSV 匯入",
           content: "",
         },
         groups: {

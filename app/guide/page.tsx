@@ -115,6 +115,11 @@ export default function GuidePage() {
           content: t.advanced.bulkTransactions.content
         },
         {
+          id: "csvImport",
+          title: t.advanced.csvImport.title,
+          content: t.advanced.csvImport.content
+        },
+        {
           id: "groups",
           title: t.advanced.groups.title,
           content: t.advanced.groups.content
@@ -193,6 +198,7 @@ export default function GuidePage() {
     deleteAccount: "delete-account",
     dividend: "dividend",
     bulkTransactions: "bulk-transactions",
+    csvImport: "csv-import",
     groups: "groups",
     exclude: "exclude",
     order: "order",
@@ -312,15 +318,9 @@ export default function GuidePage() {
         {/* Content Area */}
         <main className="flex-1 md:ml-64 lg:ml-80">
           <article className="mx-auto max-w-3xl px-6 py-12">
-            <h1 className="text-4xl font-bold text-gray-900 mb-3">
-              {language === "zh" ? "Synx 使用指南｜資產管理、投資追蹤與定期定額設定" : "Synx User Guide | Net Worth Tracking, Portfolio Management, and DCA Setup"}
-            </h1>
-            <p className="text-lg text-gray-600 mb-8 leading-relaxed">
-              {language === "zh" ? "從新增帳戶、交易紀錄到定期定額設定，幫你更完整地用 Synx 做資產管理。" : "Learn how to use Synx for net worth tracking, investment records, recurring investments, and day-to-day asset management."}
-            </p>
-            <h2 className="text-2xl font-semibold text-gray-900 mb-8">
+            <h1 className="text-3xl font-bold text-gray-900 mb-10">
               {currentSubsection.title}
-            </h2>
+            </h1>
 
             <div className="prose prose-lg max-w-none text-gray-700 leading-relaxed">
               <ReactMarkdown
@@ -336,11 +336,24 @@ export default function GuidePage() {
                   strong: ({node, ...props}) => <strong className="font-semibold text-gray-900" {...props} />,
                   em: ({node, ...props}) => <em className="italic" {...props} />,
                   a: ({node, ...props}) => <a className="text-blue-600 hover:text-blue-800 underline" {...props} />,
-                  blockquote: ({node, ...props}) => <blockquote className="border-l-4 border-gray-300 pl-4 italic my-4 text-gray-600" {...props} />,
-                  code: ({node, inline, ...props}: any) =>
-                    inline
-                      ? <code className="bg-gray-100 px-1.5 py-0.5 rounded text-sm font-mono text-gray-800" {...props} />
-                      : <code className="block bg-gray-100 p-4 rounded-lg text-sm font-mono overflow-x-auto" {...props} />,
+                  blockquote: ({node, ...props}) => <blockquote className="border-l-4 border-blue-300 bg-blue-50 pl-4 py-2 my-4 text-gray-700 rounded-r" {...props} />,
+                  pre: ({node, ...props}) => <pre className="bg-gray-100 rounded-lg my-4 overflow-x-auto" {...props} />,
+                  code: ({node, ...props}: any) => {
+                    const isBlock = (props as any)?.className?.includes('language-')
+                    return isBlock
+                      ? <code className="block p-4 text-sm font-mono text-gray-800" {...props} />
+                      : <code className="bg-gray-100 px-1.5 py-0.5 rounded text-sm font-mono text-gray-800" {...props} />
+                  },
+                  table: ({node, ...props}) => (
+                    <div className="overflow-x-auto my-6">
+                      <table className="min-w-full border border-gray-200 rounded-lg text-sm" {...props} />
+                    </div>
+                  ),
+                  thead: ({node, ...props}) => <thead className="bg-gray-50" {...props} />,
+                  tbody: ({node, ...props}) => <tbody className="divide-y divide-gray-200" {...props} />,
+                  tr: ({node, ...props}) => <tr className="divide-x divide-gray-200" {...props} />,
+                  th: ({node, ...props}) => <th className="px-4 py-3 text-left font-semibold text-gray-700 whitespace-nowrap" {...props} />,
+                  td: ({node, ...props}) => <td className="px-4 py-3 text-gray-700 align-top" {...props} />,
                 }}
               >
                 {markdownContent}
