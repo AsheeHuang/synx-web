@@ -205,6 +205,10 @@ export const translations = {
           title: "CSV Import",
           content: "",
         },
+        aiImport: {
+          title: "AI-Assisted Import",
+          content: "",
+        },
         groups: {
           title: "Group Settings",
           content: "Coming soon...",
@@ -449,6 +453,10 @@ export const translations = {
         },
         csvImport: {
           title: "CSV 匯入",
+          content: "",
+        },
+        aiImport: {
+          title: "AI 協助匯入",
           content: "",
         },
         groups: {

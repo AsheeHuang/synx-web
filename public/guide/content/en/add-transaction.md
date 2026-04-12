@@ -13,10 +13,7 @@ You will see three main options:
 
 * **Transfer:**
     * Move funds from one account to another (e.g., withdrawing cash from an ATM moves money from Bank to Wallet).
-    * ⚠️ **Restriction:** Transfers are currently limited to accounts with the **Same Currency**.
-    * **Tip for Currency Exchange:** To record a currency exchange (e.g., TWD to USD), please record it manually as two separate transactions:
-        1.  Add an **"Expense"** in the TWD account.
-        2.  Add an **"Income"** in the USD account.
+    * **Cross-currency transfers** are supported. The app applies the current exchange rate by default, but you can manually adjust the destination amount if needed.
 
 ## 2. Investment Transactions
 (For Stock, Crypto, or Precious Metal accounts)

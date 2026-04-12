@@ -133,3 +133,9 @@ Cash,Savings,2026-01-25,Transfer,5000,
 | Shares would go below 0 after sell | Import fails; shares cannot be negative |
 
 Before writing, the system shows a preview confirmation window listing the number of valid rows and any error details. You must confirm before the actual import is executed.
+
+---
+
+## 5. Using AI to Prepare Your CSV
+
+Don't want to format the CSV manually? See [AI-Assisted Import](guide#aiImport) to learn how to use Claude or ChatGPT to convert bank statements and brokerage records into the correct format automatically.

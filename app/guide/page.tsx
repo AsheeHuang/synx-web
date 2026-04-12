@@ -27,6 +27,22 @@ export default function GuidePage() {
     if (hash) {
       setActiveSection(hash)
     }
+
+    // Handle hash changes (e.g. clicking in-page links)
+    const knownSections = new Set([
+      "corePhilosophy", "features", "interface", "addAccount", "addTransaction",
+      "addPortfolio", "recurring", "adjustBalance", "deleteAccount", "dividend",
+      "bulkTransactions", "csvImport", "aiImport", "groups", "exclude", "order",
+      "dashboard", "privacy", "cost", "pricing", "dataDelay", "aboutDeveloper",
+    ])
+    const handleHashChange = () => {
+      const newHash = window.location.hash.slice(1)
+      if (newHash && knownSections.has(newHash)) {
+        setActiveSection(newHash)
+      }
+    }
+    window.addEventListener("hashchange", handleHashChange)
+    return () => window.removeEventListener("hashchange", handleHashChange)
   }, [])
 
   // Update URL hash when section changes
@@ -120,6 +136,11 @@ export default function GuidePage() {
           content: t.advanced.csvImport.content
         },
         {
+          id: "aiImport",
+          title: t.advanced.aiImport.title,
+          content: t.advanced.aiImport.content
+        },
+        {
           id: "groups",
           title: t.advanced.groups.title,
           content: t.advanced.groups.content
@@ -199,6 +220,7 @@ export default function GuidePage() {
     dividend: "dividend",
     bulkTransactions: "bulk-transactions",
     csvImport: "csv-import",
+    aiImport: "ai-import",
     groups: "groups",
     exclude: "exclude",
     order: "order",
