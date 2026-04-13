@@ -67,6 +67,7 @@ Account,Funding Account,Date,Shares,Price,Amount,Tax,Note
 TSLA,Cash,2024-01-10,100,600,60000,0,
 0050,Cash,2024-01-20,-50,650,32500,150,
 BTC-USD,,2024-02-01,10,185,1850,0,
+TSLA,,2024-06-10,300,0,0,0,3:1 stock split
 ```
 
 **Notes:**
@@ -74,6 +75,7 @@ BTC-USD,,2024-02-01,10,185,1850,0,
 - Row 1: Buy 100 shares of TSLA at 600 each; total cost 60,000 deducted from Cash account
 - Row 2: Sell 50 shares of 0050 at 650 each; 32,500 credited to Cash, with 150 in taxes
 - Row 3: Buy 10 BTC-USD units with no linked funding account (investment account only)
+- Row 4: TSLA 3:1 stock split, adding 300 shares; Price and Amount are both `0`, no cash movement
 
 ---
 
@@ -124,12 +126,12 @@ Cash,Savings,2026-01-25,Transfer,5000,
 | Account name not found | Row skipped with error message |
 | Wrong account type (e.g. investment account used in non-investment field) | Row skipped with error message |
 | Invalid date format (not `yyyy-MM-dd`) | Row skipped with error message |
+| Date is in the future | Row skipped with error message |
 | Amount is 0 (non-investment) | Row skipped: "Amount cannot be zero" |
 | Price = 0 and Amount = 0 (investment) | Treated as stock split or dividend; imported normally |
-| Shares is 0 (investment) | Row skipped: "Shares must be greater than zero" |
+| Shares is 0 (investment) | Row skipped: "Shares must not be zero" |
 | Account is closed | Row skipped with closed account message |
 | Position not found in investment account | Write fails; counted in failure total |
-| All rows have errors | Import button disabled; cannot proceed |
 | Shares would go below 0 after sell | Import fails; shares cannot be negative |
 
 Before writing, the system shows a preview confirmation window listing the number of valid rows and any error details. You must confirm before the actual import is executed.
