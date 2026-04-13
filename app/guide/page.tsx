@@ -45,10 +45,11 @@ export default function GuidePage() {
     return () => window.removeEventListener("hashchange", handleHashChange)
   }, [])
 
-  // Update URL hash when section changes
+  // Update URL hash when section changes (skip on initial render before hash is read)
   useEffect(() => {
+    if (!mounted) return
     window.location.hash = activeSection
-  }, [activeSection])
+  }, [activeSection, mounted])
 
   const toggleLanguage = () => {
     const newLanguage = language === "en" ? "zh" : "en"
