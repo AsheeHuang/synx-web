@@ -5,14 +5,6 @@ import type { Metadata } from "next"
 
 const BASE_URL = "https://synxapp.com"
 
-function getPreferredTitle(post: NonNullable<Awaited<ReturnType<typeof getPostBySlug>>>) {
-  return post.titleZh || post.titleEn
-}
-
-function getPreferredDescription(post: NonNullable<Awaited<ReturnType<typeof getPostBySlug>>>) {
-  return post.descriptionZh || post.descriptionEn || ""
-}
-
 export async function generateStaticParams() {
   try {
     const slugs = await getAllSlugs()
@@ -22,7 +14,6 @@ export async function generateStaticParams() {
   } catch {
     // Sanity unreachable at build time — fall through to stub
   }
-  // Static export requires at least one param; use a stub that renders "not found"
   return [{ slug: "_placeholder" }]
 }
 
@@ -35,8 +26,8 @@ export async function generateMetadata({
   const post = await getPostBySlug(slug)
   if (!post) return { title: "Post Not Found | Synx Blog" }
 
-  const title = `${getPreferredTitle(post)} | Synx`
-  const description = getPreferredDescription(post)
+  const title = `${post.title} | Synx`
+  const description = post.description || ""
   const url = `${BASE_URL}/blog/${post.slug}`
 
   return {
@@ -52,7 +43,6 @@ export async function generateMetadata({
       url,
       siteName: "Synx",
       locale: "zh_TW",
-      alternateLocale: ["en_US"],
     },
     twitter: {
       card: "summary_large_image",
@@ -61,11 +51,6 @@ export async function generateMetadata({
     },
     alternates: {
       canonical: url,
-      languages: {
-        "zh-TW": url,
-        en: url,
-        "x-default": url,
-      },
     },
   }
 }
