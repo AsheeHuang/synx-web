@@ -68,7 +68,7 @@ export default function BlogPage() {
       </header>
 
       <main className="container mx-auto px-4 sm:px-6 lg:px-8 pt-32 pb-20">
-        <div className="max-w-3xl mx-auto mb-16">
+        <div className="mb-12">
           <h1 className="text-5xl sm:text-6xl font-bold text-foreground mb-4 leading-none tracking-tight">
             {t.title}
           </h1>
@@ -77,9 +77,8 @@ export default function BlogPage() {
           </p>
         </div>
 
-        <div className="max-w-3xl mx-auto">
-          <BlogListClient posts={posts} language={language} allTags={allTags} />
-        </div>
+        <BlogListClient posts={posts} language={language} allTags={allTags} />
+
       </main>
     </div>
   )

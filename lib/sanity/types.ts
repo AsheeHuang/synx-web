@@ -1,10 +1,16 @@
 export type Language = 'en' | 'zh'
 
+export interface SanityCoverImage {
+  url: string
+  alt?: string
+}
+
 export interface SanityPost {
   slug: string
   date: string
   author: string
   tags: string[]
+  coverImage?: SanityCoverImage
   titleEn: string
   titleZh: string
   descriptionEn: string
@@ -19,6 +25,7 @@ export interface SanityPostSummary {
   date: string
   author: string
   tags: string[]
+  coverImage?: SanityCoverImage
   titleEn: string
   titleZh: string
   descriptionEn: string

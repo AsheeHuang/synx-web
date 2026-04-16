@@ -1,5 +1,6 @@
 import Link from "next/link"
-import { Calendar, Clock } from "lucide-react"
+import Image from "next/image"
+import { Calendar } from "lucide-react"
 import type { SanityPostSummary, Language } from "@/lib/sanity/types"
 
 interface PostCardProps {
@@ -7,62 +8,80 @@ interface PostCardProps {
   language: Language
 }
 
-const labels = {
-  en: { readingTime: "min read" },
-  zh: { readingTime: "分鐘閱讀" },
-}
-
 export function PostCard({ post, language }: PostCardProps) {
   const title = language === "zh" ? (post.titleZh || post.titleEn) : post.titleEn
   const description = language === "zh" ? (post.descriptionZh || post.descriptionEn) : post.descriptionEn
   const locale = language === "zh" ? "zh-TW" : "en-US"
-  const t = labels[language]
 
   return (
-    <article className="group py-10 border-b border-border last:border-b-0">
-      {post.tags?.length > 0 && (
-        <div className="flex flex-wrap gap-2 mb-3">
-          {post.tags.map((tag) => (
-            <span
-              key={tag}
-              className="text-xs font-medium uppercase tracking-wider text-primary"
-            >
-              {tag}
-            </span>
-          ))}
+    <article className="group flex flex-col bg-card rounded-2xl overflow-hidden border border-border hover:border-primary/30 hover:shadow-lg transition-all duration-200 cursor-pointer">
+      <Link href={`/blog/${post.slug}`} className="flex flex-col flex-1">
+        {/* Cover image */}
+        <div className="relative w-full aspect-[16/9] bg-muted overflow-hidden">
+          {post.coverImage?.url ? (
+            <Image
+              src={post.coverImage.url}
+              alt={post.coverImage.alt || title}
+              fill
+              className="object-cover group-hover:scale-105 transition-transform duration-300"
+              sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
+            />
+          ) : (
+            <div className="absolute inset-0 bg-gradient-to-br from-primary/10 to-primary/5 flex items-center justify-center">
+              <Image
+                src="/icon_fill.png"
+                alt="Synx"
+                width={128}
+                height={128}
+                className="w-16 h-16 rounded-xl opacity-40"
+              />
+            </div>
+          )}
         </div>
-      )}
 
-      <Link href={`/blog/${post.slug}`}>
-        <h2 className="text-2xl sm:text-3xl font-bold text-foreground mb-3 leading-tight group-hover:text-primary transition-colors duration-150 cursor-pointer">
-          {title}
-        </h2>
-      </Link>
+        {/* Card body */}
+        <div className="flex flex-col flex-1 p-5 gap-3">
+          {/* Tags */}
+          {post.tags?.length > 0 && (
+            <div className="flex flex-wrap gap-1.5">
+              {post.tags.map((tag) => (
+                <span
+                  key={tag}
+                  className="text-xs font-medium uppercase tracking-wider text-primary"
+                >
+                  {tag}
+                </span>
+              ))}
+            </div>
+          )}
 
-      {description && (
-        <p className="text-muted-foreground leading-relaxed mb-4 max-w-[65ch]">
-          {description}
-        </p>
-      )}
+          {/* Title */}
+          <h2 className="text-lg font-bold text-foreground leading-snug group-hover:text-primary transition-colors duration-150 line-clamp-2">
+            {title}
+          </h2>
 
-      <div className="flex items-center gap-4 text-sm text-muted-foreground">
-        <div className="flex items-center gap-1.5">
-          <Calendar className="w-3.5 h-3.5" />
-          <time dateTime={post.date}>
-            {new Date(post.date).toLocaleDateString(locale, {
-              year: "numeric",
-              month: "long",
-              day: "numeric",
-            })}
-          </time>
-        </div>
-        {post.readingTime && (
-          <div className="flex items-center gap-1.5">
-            <Clock className="w-3.5 h-3.5" />
-            <span>{post.readingTime} {t.readingTime}</span>
+          {/* Description */}
+          {description && (
+            <p className="text-sm text-muted-foreground leading-relaxed line-clamp-2 flex-1">
+              {description}
+            </p>
+          )}
+
+          {/* Meta */}
+          <div className="flex items-center gap-3 text-xs text-muted-foreground pt-1 mt-auto">
+            <div className="flex items-center gap-1">
+              <Calendar className="w-3 h-3" />
+              <time dateTime={post.date}>
+                {new Date(post.date).toLocaleDateString(locale, {
+                  year: "numeric",
+                  month: "short",
+                  day: "numeric",
+                })}
+              </time>
+            </div>
           </div>
-        )}
-      </div>
+        </div>
+      </Link>
     </article>
   )
 }

@@ -35,7 +35,7 @@ export function BlogListClient({ posts, language, allTags }: BlogListClientProps
       {filteredPosts.length === 0 ? (
         <p className="text-muted-foreground text-center py-20">{t.noPostsYet}</p>
       ) : (
-        <div>
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
           {filteredPosts.map((post) => (
             <PostCard key={post.slug} post={post} language={language} />
           ))}

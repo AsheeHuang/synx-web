@@ -29,9 +29,10 @@ export async function generateStaticParams() {
 export async function generateMetadata({
   params,
 }: {
-  params: { slug: string }
+  params: Promise<{ slug: string }>
 }): Promise<Metadata> {
-  const post = await getPostBySlug(params.slug)
+  const { slug } = await params
+  const post = await getPostBySlug(slug)
   if (!post) return { title: "Post Not Found | Synx Blog" }
 
   const title = `${getPreferredTitle(post)} | Synx`
@@ -72,14 +73,15 @@ export async function generateMetadata({
 export default async function BlogPostPage({
   params,
 }: {
-  params: { slug: string }
+  params: Promise<{ slug: string }>
 }) {
-  const post = await getPostBySlug(params.slug)
+  const { slug } = await params
+  const post = await getPostBySlug(slug)
 
   return (
     <>
       {post ? <BlogPostJsonLd post={post} /> : null}
-      <BlogPostClient post={post} slug={params.slug} />
+      <BlogPostClient post={post} slug={slug} />
     </>
   )
 }

@@ -95,7 +95,9 @@ export default function BlogPostClient({ post, slug, suppressPrimaryHeading = fa
   }
 
   const title = language === "zh" ? (post.titleZh || post.titleEn) : post.titleEn
-  const content = language === "zh" ? (post.contentZh?.length ? post.contentZh : post.contentEn) : post.contentEn
+  const content = language === "zh"
+    ? (post.contentZh?.length ? post.contentZh : post.contentEn)
+    : (post.contentEn?.length ? post.contentEn : post.contentZh)
 
   return (
     <div className="min-h-screen bg-background">

@@ -1,4 +1,4 @@
-import { Calendar, Clock } from "lucide-react"
+import { Calendar } from "lucide-react"
 import type { Language } from "@/lib/sanity/types"
 
 interface PostHeaderProps {
@@ -49,13 +49,7 @@ export function PostHeader({ title, date, author, tags, readingTime, language, h
             })}
           </time>
         </div>
-        {readingTime && (
-          <div className="flex items-center gap-1.5">
-            <Clock className="w-3.5 h-3.5" />
-            <span>{readingTime} {t.readingTime}</span>
-          </div>
-        )}
-        {author && (
+{author && (
           <span>{t.by} <span className="font-medium text-foreground">{author}</span></span>
         )}
       </div>

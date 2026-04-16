@@ -17,6 +17,7 @@ export async function getAllPostSummaries(): Promise<SanityPostSummary[]> {
       date,
       author,
       tags,
+      "coverImage": coverImage { "url": asset->url, alt },
       titleEn,
       titleZh,
       descriptionEn,
@@ -40,6 +41,7 @@ export async function getPostBySlug(slug: string): Promise<SanityPost | null> {
       date,
       author,
       tags,
+      "coverImage": coverImage { "url": asset->url, alt },
       titleEn,
       titleZh,
       descriptionEn,
@@ -59,6 +61,8 @@ export async function getPostBySlug(slug: string): Promise<SanityPost | null> {
 
   return {
     ...post,
-    readingTime: estimateReadingTime(post.contentEn ?? []),
+    readingTime: estimateReadingTime(
+      post.contentEn?.length ? post.contentEn : (post.contentZh ?? [])
+    ),
   }
 }
