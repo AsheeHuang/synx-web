@@ -9,18 +9,10 @@ import type { SanityPostSummary } from "@/lib/sanity/types"
 
 export default function BlogPage() {
   const [posts, setPosts] = useState<SanityPostSummary[]>([])
-  const [mounted, setMounted] = useState(false)
 
   useEffect(() => {
-    setMounted(true)
-  }, [])
-
-  useEffect(() => {
-    if (!mounted) return
     getAllPostSummaries().then(setPosts)
-  }, [mounted])
-
-  if (!mounted) return null
+  }, [])
 
   const allTags = Array.from(new Set(posts.flatMap((p) => p.tags ?? []))).sort()
 

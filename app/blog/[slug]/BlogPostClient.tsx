@@ -11,7 +11,6 @@ import type { SanityPost } from "@/lib/sanity/types"
 
 interface BlogPostClientProps {
   post: SanityPost | null
-  slug: string
   suppressPrimaryHeading?: boolean
 }
 

@@ -66,7 +66,7 @@ export default async function BlogPostPage({
   return (
     <>
       {post ? <BlogPostJsonLd post={post} /> : null}
-      <BlogPostClient post={post} slug={slug} />
+      <BlogPostClient post={post} />
     </>
   )
 }
