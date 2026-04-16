@@ -1,5 +1,3 @@
-export type Language = 'en' | 'zh'
-
 export interface SanityCoverImage {
   url: string
   alt?: string
@@ -11,12 +9,9 @@ export interface SanityPost {
   author: string
   tags: string[]
   coverImage?: SanityCoverImage
-  titleEn: string
-  titleZh: string
-  descriptionEn: string
-  descriptionZh: string
-  contentEn: any[]
-  contentZh: any[]
+  title: string
+  description: string
+  content: string
   readingTime?: number
 }
 
@@ -26,9 +21,7 @@ export interface SanityPostSummary {
   author: string
   tags: string[]
   coverImage?: SanityCoverImage
-  titleEn: string
-  titleZh: string
-  descriptionEn: string
-  descriptionZh: string
+  title: string
+  description: string
   readingTime?: number
 }
