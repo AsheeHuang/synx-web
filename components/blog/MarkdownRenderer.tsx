@@ -1,10 +1,13 @@
-import ReactMarkdown from "react-markdown"
+import Markdown from "react-markdown"
 import remarkGfm from "remark-gfm"
 import type { Components } from "react-markdown"
 
 const components: Components = {
   p: ({ children }) => (
     <p className="mb-6 leading-[1.8] text-foreground font-serif">{children}</p>
+  ),
+  h1: ({ children }) => (
+    <h2 className="text-2xl sm:text-3xl font-bold text-foreground mt-12 mb-5 leading-tight">{children}</h2>
   ),
   h2: ({ children }) => (
     <h2 className="text-2xl sm:text-3xl font-bold text-foreground mt-12 mb-5 leading-tight">{children}</h2>
@@ -47,16 +50,19 @@ const components: Components = {
   pre: ({ children }) => (
     <pre className="bg-[#1e1e2e] my-8 rounded-lg overflow-x-auto">{children}</pre>
   ),
-  a: ({ href, children }) => (
-    <a
-      href={href}
-      target="_blank"
-      rel="noopener noreferrer"
-      className="text-primary underline underline-offset-2 hover:text-primary/80 transition-colors"
-    >
-      {children}
-    </a>
-  ),
+  a: ({ href, children }) => {
+    const isExternal = href?.startsWith("http")
+    return (
+      <a
+        href={href}
+        target={isExternal ? "_blank" : undefined}
+        rel={isExternal ? "noopener noreferrer" : undefined}
+        className="text-primary underline underline-offset-2 hover:text-primary/80 transition-colors"
+      >
+        {children}
+      </a>
+    )
+  },
   img: ({ src, alt }) => (
     <figure className="my-10">
       {/* eslint-disable-next-line @next/next/no-img-element */}
@@ -92,9 +98,9 @@ export function MarkdownRenderer({ content }: MarkdownRendererProps) {
   if (!content) return null
   return (
     <div className="prose-custom">
-      <ReactMarkdown remarkPlugins={[remarkGfm]} components={components}>
+      <Markdown remarkPlugins={[remarkGfm]} components={components}>
         {content}
-      </ReactMarkdown>
+      </Markdown>
     </div>
   )
 }
