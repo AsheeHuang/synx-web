@@ -7,20 +7,18 @@ interface BlogPostJsonLdProps {
 const BASE_URL = "https://synxapp.com"
 
 export function BlogPostJsonLd({ post }: BlogPostJsonLdProps) {
-  const headline = post.titleZh || post.titleEn
-  const description = post.descriptionZh || post.descriptionEn || ""
   const url = `${BASE_URL}/blog/${post.slug}`
 
   const structuredData = {
     "@context": "https://schema.org",
     "@type": "BlogPosting",
-    headline,
-    description,
+    headline: post.title,
+    description: post.description || "",
     datePublished: post.date,
     dateModified: post.date,
     mainEntityOfPage: url,
     url,
-    inLanguage: post.titleZh ? "zh-TW" : "en",
+    inLanguage: "zh-TW",
     author: {
       "@type": "Person",
       name: post.author,
