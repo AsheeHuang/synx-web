@@ -1,5 +1,4 @@
 import { Calendar } from "lucide-react"
-import type { Language } from "@/lib/sanity/types"
 
 interface PostHeaderProps {
   title: string
@@ -7,19 +6,10 @@ interface PostHeaderProps {
   author: string
   tags: string[]
   readingTime?: number
-  language: Language
   hideTitle?: boolean
 }
 
-const labels = {
-  en: { readingTime: "min read", by: "By" },
-  zh: { readingTime: "分鐘閱讀", by: "作者" },
-}
-
-export function PostHeader({ title, date, author, tags, readingTime, language, hideTitle = false }: PostHeaderProps) {
-  const locale = language === "zh" ? "zh-TW" : "en-US"
-  const t = labels[language]
-
+export function PostHeader({ title, date, author, tags, readingTime, hideTitle = false }: PostHeaderProps) {
   return (
     <header className="mb-12 pb-8 border-b border-border">
       {tags?.length > 0 && (
@@ -42,15 +32,18 @@ export function PostHeader({ title, date, author, tags, readingTime, language, h
         <div className="flex items-center gap-1.5">
           <Calendar className="w-3.5 h-3.5" />
           <time dateTime={date}>
-            {new Date(date).toLocaleDateString(locale, {
+            {new Date(date).toLocaleDateString("zh-TW", {
               year: "numeric",
               month: "long",
               day: "numeric",
             })}
           </time>
         </div>
-{author && (
-          <span>{t.by} <span className="font-medium text-foreground">{author}</span></span>
+        {author && (
+          <span>作者 <span className="font-medium text-foreground">{author}</span></span>
+        )}
+        {readingTime && (
+          <span>{readingTime} 分鐘閱讀</span>
         )}
       </div>
     </header>
