@@ -1,18 +1,13 @@
 import Link from "next/link"
 import Image from "next/image"
 import { Calendar } from "lucide-react"
-import type { SanityPostSummary, Language } from "@/lib/sanity/types"
+import type { SanityPostSummary } from "@/lib/sanity/types"
 
 interface PostCardProps {
   post: SanityPostSummary
-  language: Language
 }
 
-export function PostCard({ post, language }: PostCardProps) {
-  const title = language === "zh" ? (post.titleZh || post.titleEn) : post.titleEn
-  const description = language === "zh" ? (post.descriptionZh || post.descriptionEn) : post.descriptionEn
-  const locale = language === "zh" ? "zh-TW" : "en-US"
-
+export function PostCard({ post }: PostCardProps) {
   return (
     <article className="group flex flex-col bg-card rounded-2xl overflow-hidden border border-border hover:border-primary/30 hover:shadow-lg transition-all duration-200 cursor-pointer">
       <Link href={`/blog/${post.slug}`} className="flex flex-col flex-1">
@@ -21,7 +16,7 @@ export function PostCard({ post, language }: PostCardProps) {
           {post.coverImage?.url ? (
             <Image
               src={post.coverImage.url}
-              alt={post.coverImage.alt || title}
+              alt={post.coverImage.alt || post.title}
               fill
               className="object-cover group-hover:scale-105 transition-transform duration-300"
               sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
@@ -57,13 +52,13 @@ export function PostCard({ post, language }: PostCardProps) {
 
           {/* Title */}
           <h2 className="text-lg font-bold text-foreground leading-snug group-hover:text-primary transition-colors duration-150 line-clamp-2">
-            {title}
+            {post.title}
           </h2>
 
           {/* Description */}
-          {description && (
+          {post.description && (
             <p className="text-sm text-muted-foreground leading-relaxed line-clamp-2 flex-1">
-              {description}
+              {post.description}
             </p>
           )}
 
@@ -72,7 +67,7 @@ export function PostCard({ post, language }: PostCardProps) {
             <div className="flex items-center gap-1">
               <Calendar className="w-3 h-3" />
               <time dateTime={post.date}>
-                {new Date(post.date).toLocaleDateString(locale, {
+                {new Date(post.date).toLocaleDateString("zh-TW", {
                   year: "numeric",
                   month: "short",
                   day: "numeric",
