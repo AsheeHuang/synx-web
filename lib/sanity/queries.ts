@@ -1,13 +1,9 @@
 import { sanityClient } from './client'
 import type { SanityPost, SanityPostSummary } from './types'
 
-function estimateReadingTime(blocks: any[]): number {
-  if (!blocks || !blocks.length) return 1
-  const text = blocks
-    .filter((b) => b._type === 'block')
-    .map((b) => b.children?.map((c: any) => c.text).join('') ?? '')
-    .join(' ')
-  return Math.max(1, Math.ceil(text.split(/\s+/).length / 200))
+function estimateReadingTime(content: string): number {
+  if (!content) return 1
+  return Math.max(1, Math.ceil(content.split(/\s+/).length / 200))
 }
 
 export async function getAllPostSummaries(): Promise<SanityPostSummary[]> {
@@ -18,10 +14,8 @@ export async function getAllPostSummaries(): Promise<SanityPostSummary[]> {
       author,
       tags,
       "coverImage": coverImage { "url": asset->url, alt },
-      titleEn,
-      titleZh,
-      descriptionEn,
-      descriptionZh,
+      title,
+      description,
     }
   `)
   return posts ?? []
@@ -42,18 +36,9 @@ export async function getPostBySlug(slug: string): Promise<SanityPost | null> {
       author,
       tags,
       "coverImage": coverImage { "url": asset->url, alt },
-      titleEn,
-      titleZh,
-      descriptionEn,
-      descriptionZh,
-      "contentEn": contentEn[]{
-        ...,
-        _type == "image" => { ..., "asset": asset->{ url } }
-      },
-      "contentZh": contentZh[]{
-        ...,
-        _type == "image" => { ..., "asset": asset->{ url } }
-      },
+      title,
+      description,
+      content,
     }
   `, { slug })
 
@@ -61,8 +46,6 @@ export async function getPostBySlug(slug: string): Promise<SanityPost | null> {
 
   return {
     ...post,
-    readingTime: estimateReadingTime(
-      post.contentEn?.length ? post.contentEn : (post.contentZh ?? [])
-    ),
+    readingTime: estimateReadingTime(post.content ?? ''),
   }
 }
