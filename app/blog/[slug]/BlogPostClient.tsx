@@ -74,6 +74,18 @@ export default function BlogPostClient({ post, suppressPrimaryHeading = false }:
             hideTitle={suppressPrimaryHeading}
           />
 
+          {post.coverImage?.url && (
+            <div className="relative w-full aspect-[16/9] mb-10 rounded-xl overflow-hidden">
+              <Image
+                src={post.coverImage.url}
+                alt={post.coverImage.alt || post.title}
+                fill
+                className="object-cover"
+                priority
+              />
+            </div>
+          )}
+
           <MarkdownRenderer content={post.content} />
 
           {post.author && (
