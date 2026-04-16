@@ -3,9 +3,14 @@ import remarkGfm from "remark-gfm"
 import type { Components } from "react-markdown"
 
 const components: Components = {
-  p: ({ children }) => (
-    <p className="mb-6 leading-[1.8] text-foreground font-serif">{children}</p>
-  ),
+  p: ({ children, node }) => {
+    // Standalone image — don't wrap in <p> to avoid invalid <figure> inside <p>
+    const onlyChild = node?.children?.length === 1 ? node.children[0] : null
+    if (onlyChild && onlyChild.type === "element" && onlyChild.tagName === "img") {
+      return <>{children}</>
+    }
+    return <p className="mb-6 leading-[1.8] text-foreground font-serif">{children}</p>
+  },
   h1: ({ children }) => (
     <h2 className="text-2xl sm:text-3xl font-bold text-foreground mt-12 mb-5 leading-tight">{children}</h2>
   ),
